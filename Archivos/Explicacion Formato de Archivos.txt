@@ -1,0 +1,21 @@
+Formato de los archivos:
+
+- ClienteCorporativo:
+NumeroCliente;RazonSocial;CUIT;Direccion;Contraseña
+
+- Lugares
+Pais;Region;Provincia;Destino
+
+- Tarifas:
+Local;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+Provincial;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+Regional;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+Nacional;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+PaisesLimitrofes;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+AmericaLatina;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+AmericaDelNorte;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+Europa;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+Asia;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
+Adicional;%Urgente;Precio TopeUrgente;Precio Retiro en Puerta;Precio Entrega en Puerta
+
+- OrdendeServicio

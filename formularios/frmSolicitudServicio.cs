@@ -24,43 +24,37 @@ namespace GRUPO_C.formularios
 
         // TODAS LAS TARIFAS VA A CONSULTARLAS EN EL ARCHIVO
         // Tarifas misma Localidad
-        float tarifaLocalLocalhasta500gr = 350.00f;
-        float tarifaLocalLocalhasta10kg = 3500.00f;
-        float tarifaLocalLocalhasta20kg = 4200.00f;
-        float tarifaLocalLocalhasta30kg = 5250.00f;
+        float tarifaLocalLocalhasta500gr,tarifaLocalLocalhasta10kg,tarifaLocalLocalhasta20kg,tarifaLocalLocalhasta30kg;
 
         // Tarifas misma Provincia
-        float tarifaProvincialProvincialhasta500gr = 550.00f;
-        float tarifaProvincialProvincialhasta10kg = 5500.00f;
-        float tarifaProvincialProvincialhasta20kg = 6600.00f;
-        float tarifaProvincialProvincialhasta30kg = 8250.00f;
+        float tarifaProvincialProvincialhasta500gr,tarifaProvincialProvincialhasta10kg,tarifaProvincialProvincialhasta20kg,tarifaProvincialProvincialhasta30kg;
 
         // Tarifas misma Region
-        float tarifaRegionalRegionalhasta500gr = 750.00f;
-        float tarifaRegionalRegionalhasta10kg = 7500.00f;
-        float tarifaRegionalRegionalhasta20kg = 9000.00f;
-        float tarifaRegionalRegionalhasta30kg = 11250.00f;
+        float tarifaRegionalRegionalhasta500gr,tarifaRegionalRegionalhasta10kg,tarifaRegionalRegionalhasta20kg,tarifaRegionalRegionalhasta30kg;
 
         // Tarifas Nacional
-        float tarifaNacionalNacional500gr = 950.00f;
-        float tarifaNacionalNacionalhasta10kg = 9500.00f;
-        float tarifaNacionalNacionalhasta20kg = 11400.00f;
-        float tarifaNacionalNacionalhasta30kg = 14250.00f;
+        float tarifaNacionalNacional500gr,tarifaNacionalNacionalhasta10kg,tarifaNacionalNacionalhasta20kg,tarifaNacionalNacionalhasta30kg;
 
 
         // TARIFAS INTERNACIONALES
 
+        // Pais Limitrofe
+        float tarifaPaisLimitrofe500gr,tarifaPaisLimitrofe10kg,tarifaPaisLimitrofe20kg,tarifaPaisLimitrofe30kg;
+
+        // America Latina
+        float tarifaAmericaLatina500gr,tarifaAmericaLatina10kg,tarifaAmericaLatina20kg,tarifaAmericaLatina30kg;
+
+        // America del Norte
+        float tarifaAmericaNorte500gr,tarifaAmericaNorte10kg,tarifaAmericaNorte20kg,tarifaAmericaNorte30kg;
+
         // Europa
-        float tarifaEuropa500gr = 8200.00f;
-        float tarifaEuropa10kg = 82000.00f;
-        float tarifaEuropa20kg = 98400.00f;
-        float tarifaEuropa30kg = 123000.00f;
+        float tarifaEuropa500gr,tarifaEuropa10kg,tarifaEuropa20kg,tarifaEuropa30kg;
+
+        // Asia
+        float tarifaAsia500gr,tarifaAsia10kg,tarifaAsia20kg,tarifaAsia30kg;
 
         // TARIFAS ADICIONALES
-        float porcUrgente = 1.50f; // 50%
-        float topeUrgente = 15000.00f;
-        float RetiroPuerta = 3500f;
-        float EntregaPuerta = 1500f;
+        float porcUrgente,topeUrgente,RetiroPuerta,EntregaPuerta;
 
         public frmSolicitudServicio()
         {
@@ -70,6 +64,7 @@ namespace GRUPO_C.formularios
         private void frmSolicitudServicio_Load(object sender, EventArgs e)
         {
             BuscarObjetosLugares();
+            BuscarTarifas();
             CargarRegionesOrigenNacional();
             CargarPaisesDestino();
         }
@@ -117,6 +112,114 @@ namespace GRUPO_C.formularios
                 {
                     cmbPaisDestino.Items.Add(lugar.Pais);
                 }
+            }
+        }
+
+        private void BuscarTarifas()
+        {
+            // Acceder al archivo de esta manera si el proyecto se esta ejecutando desde la carpeta bin
+            string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\", "Archivos/Tarifas.txt");
+
+            //string path = "Archivos/Tarifas.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
+
+            using (StreamReader sr = new StreamReader(path))
+
+            for (int i=1; i<=10; i++)
+            {
+                string linea = sr.ReadLine();
+                string[] vector = linea.Split(';');
+
+                // Tarifas envio Local
+                if (i== 1)
+                {
+                    tarifaLocalLocalhasta500gr = float.Parse(vector[1]);
+                    tarifaLocalLocalhasta10kg = float.Parse(vector[2]);
+                    tarifaLocalLocalhasta20kg = float.Parse(vector[3]);
+                    tarifaLocalLocalhasta30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas envio Provincial
+                if (i== 2)
+                {
+                    tarifaProvincialProvincialhasta500gr = float.Parse(vector[1]);
+                    tarifaProvincialProvincialhasta10kg = float.Parse(vector[2]);
+                    tarifaProvincialProvincialhasta20kg = float.Parse(vector[3]);
+                    tarifaProvincialProvincialhasta30kg = float.Parse(vector[4]);
+                }
+
+
+                // Tarifas envio Regional
+                if (i == 3)
+                {
+                    tarifaRegionalRegionalhasta500gr = float.Parse(vector[1]);
+                    tarifaRegionalRegionalhasta10kg = float.Parse(vector[2]);
+                    tarifaRegionalRegionalhasta20kg = float.Parse(vector[3]);
+                    tarifaRegionalRegionalhasta30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas envio Nacional
+                if (i == 4)
+                {
+                    tarifaNacionalNacional500gr = float.Parse(vector[1]);
+                    tarifaNacionalNacionalhasta10kg = float.Parse(vector[2]);
+                    tarifaNacionalNacionalhasta20kg = float.Parse(vector[3]);
+                    tarifaNacionalNacionalhasta30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas Pais Limitrofe
+                if (i == 5)
+                {
+                    tarifaPaisLimitrofe500gr = float.Parse(vector[1]);
+                    tarifaPaisLimitrofe10kg = float.Parse(vector[2]);
+                    tarifaPaisLimitrofe20kg = float.Parse(vector[3]);
+                    tarifaPaisLimitrofe30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas America Latina
+                if (i == 6)
+                {
+                    tarifaAmericaLatina500gr = float.Parse(vector[1]);
+                    tarifaAmericaLatina10kg = float.Parse(vector[2]);
+                    tarifaAmericaLatina20kg = float.Parse(vector[3]);
+                    tarifaAmericaLatina30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas America del Norte
+                if (i == 7)
+                {
+                    tarifaAmericaNorte500gr = float.Parse(vector[1]);
+                    tarifaAmericaNorte10kg = float.Parse(vector[2]);
+                    tarifaAmericaNorte20kg = float.Parse(vector[3]);
+                    tarifaAmericaNorte30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas Europa
+                if (i == 8)
+                {
+                    tarifaEuropa500gr = float.Parse(vector[1]);
+                    tarifaEuropa10kg = float.Parse(vector[2]);
+                    tarifaEuropa20kg = float.Parse(vector[3]);
+                    tarifaEuropa30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas Asia
+                if (i == 9)
+                {
+                    tarifaAsia500gr = float.Parse(vector[1]);
+                    tarifaAsia10kg = float.Parse(vector[2]);
+                    tarifaAsia20kg = float.Parse(vector[3]);
+                    tarifaAsia30kg = float.Parse(vector[4]);
+                }
+
+                // Tarifas Adicional
+                if (i == 10)
+                {
+                    porcUrgente = (float.Parse(vector[1]) / 100) + 1; // asi si por ejemplo es 50%, la variable vale 1.5 para calcular la tarifa mas facil
+                    topeUrgente = float.Parse(vector[2]);
+                    RetiroPuerta = float.Parse(vector[3]);
+                    EntregaPuerta = float.Parse(vector[4]);
+                }
+
             }
         }
 
