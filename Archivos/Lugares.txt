@@ -1,0 +1,10 @@
+Argentina;Metropolitana;Buenos Aires;Luján
+Argentina;Metropolitana;Buenos Aires;Tandil
+Argentina;Metropolitana;CABA;CABA
+Argentina;Sur;Santa Cruz;Río Gallegos
+Argentina;Sur;Santa Cruz;El Calafate
+Argentina;Sur;Río Negro;San Carlos de Bariloche
+Argentina;Sur;Río Negro;Viedma
+España;Europa;null;null
+Portugal;Europa;null;null
+Estados Unidos; America del Norte;null;null
