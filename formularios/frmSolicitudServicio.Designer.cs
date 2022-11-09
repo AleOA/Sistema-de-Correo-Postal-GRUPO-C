@@ -200,6 +200,7 @@
             this.cmbModalidadOrigen.Location = new System.Drawing.Point(187, 175);
             this.cmbModalidadOrigen.Name = "cmbModalidadOrigen";
             this.cmbModalidadOrigen.Size = new System.Drawing.Size(206, 28);
+            this.cmbModalidadOrigen.Sorted = true;
             this.cmbModalidadOrigen.TabIndex = 18;
             this.cmbModalidadOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbModalidadOrigen_SelectedIndexChanged);
             // 
@@ -230,8 +231,10 @@
             this.cmbProvinciaOrigen.Enabled = false;
             this.cmbProvinciaOrigen.FormattingEnabled = true;
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(187, 88);
+            this.cmbProvinciaOrigen.MaxDropDownItems = 50;
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
             this.cmbProvinciaOrigen.Size = new System.Drawing.Size(206, 28);
+            this.cmbProvinciaOrigen.Sorted = true;
             this.cmbProvinciaOrigen.TabIndex = 27;
             this.cmbProvinciaOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbProvinciaOrigen_SelectedIndexChanged);
             // 
@@ -286,8 +289,10 @@
             this.cmbLocalidadOrigen.Enabled = false;
             this.cmbLocalidadOrigen.FormattingEnabled = true;
             this.cmbLocalidadOrigen.Location = new System.Drawing.Point(187, 128);
+            this.cmbLocalidadOrigen.MaxDropDownItems = 100;
             this.cmbLocalidadOrigen.Name = "cmbLocalidadOrigen";
             this.cmbLocalidadOrigen.Size = new System.Drawing.Size(206, 28);
+            this.cmbLocalidadOrigen.Sorted = true;
             this.cmbLocalidadOrigen.TabIndex = 33;
             // 
             // cmbRegionOrigen
@@ -295,8 +300,10 @@
             this.cmbRegionOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRegionOrigen.FormattingEnabled = true;
             this.cmbRegionOrigen.Location = new System.Drawing.Point(187, 49);
+            this.cmbRegionOrigen.MaxDropDownItems = 10;
             this.cmbRegionOrigen.Name = "cmbRegionOrigen";
             this.cmbRegionOrigen.Size = new System.Drawing.Size(206, 28);
+            this.cmbRegionOrigen.Sorted = true;
             this.cmbRegionOrigen.TabIndex = 34;
             this.cmbRegionOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbRegionOrigen_SelectedIndexChanged);
             // 
@@ -339,8 +346,10 @@
             this.cmbPaisDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaisDestino.FormattingEnabled = true;
             this.cmbPaisDestino.Location = new System.Drawing.Point(969, 47);
+            this.cmbPaisDestino.MaxDropDownItems = 100;
             this.cmbPaisDestino.Name = "cmbPaisDestino";
             this.cmbPaisDestino.Size = new System.Drawing.Size(174, 28);
+            this.cmbPaisDestino.Sorted = true;
             this.cmbPaisDestino.TabIndex = 38;
             this.cmbPaisDestino.SelectedIndexChanged += new System.EventHandler(this.cmbPaisDestino_SelectedIndexChanged);
             // 
@@ -358,8 +367,10 @@
             this.cmbRegionDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRegionDestino.FormattingEnabled = true;
             this.cmbRegionDestino.Location = new System.Drawing.Point(968, 85);
+            this.cmbRegionDestino.MaxDropDownItems = 10;
             this.cmbRegionDestino.Name = "cmbRegionDestino";
             this.cmbRegionDestino.Size = new System.Drawing.Size(175, 28);
+            this.cmbRegionDestino.Sorted = true;
             this.cmbRegionDestino.TabIndex = 40;
             this.cmbRegionDestino.SelectedIndexChanged += new System.EventHandler(this.cmbRegionDestino_SelectedIndexChanged);
             // 
@@ -387,8 +398,10 @@
             this.cmbProvinciaDestino.Enabled = false;
             this.cmbProvinciaDestino.FormattingEnabled = true;
             this.cmbProvinciaDestino.Location = new System.Drawing.Point(968, 128);
+            this.cmbProvinciaDestino.MaxDropDownItems = 50;
             this.cmbProvinciaDestino.Name = "cmbProvinciaDestino";
             this.cmbProvinciaDestino.Size = new System.Drawing.Size(175, 28);
+            this.cmbProvinciaDestino.Sorted = true;
             this.cmbProvinciaDestino.TabIndex = 43;
             this.cmbProvinciaDestino.SelectedIndexChanged += new System.EventHandler(this.cmbProvinciaDestino_SelectedIndexChanged);
             // 
@@ -398,8 +411,10 @@
             this.cmbLocalidadDestino.Enabled = false;
             this.cmbLocalidadDestino.FormattingEnabled = true;
             this.cmbLocalidadDestino.Location = new System.Drawing.Point(969, 175);
+            this.cmbLocalidadDestino.MaxDropDownItems = 100;
             this.cmbLocalidadDestino.Name = "cmbLocalidadDestino";
             this.cmbLocalidadDestino.Size = new System.Drawing.Size(174, 28);
+            this.cmbLocalidadDestino.Sorted = true;
             this.cmbLocalidadDestino.TabIndex = 44;
             // 
             // lblModalidadDestino

@@ -1,6 +1,10 @@
 Formato de los archivos:
 
 - ClienteCorporativo:
+
+// Acordarse borrar usuario test, lo hice para logearnos mas rapido al probar
+CUIT:1 Contraseña: 1.
+
 NumeroCliente;RazonSocial;CUIT;Direccion;Contraseña
 
 - Lugares

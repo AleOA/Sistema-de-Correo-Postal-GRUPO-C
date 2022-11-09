@@ -67,6 +67,9 @@ namespace GRUPO_C.formularios
             BuscarTarifas();
             CargarRegionesOrigenNacional();
             CargarPaisesDestino();
+
+            // Selecciono Destino Argentina por defecto al cargar el formulario para mejorar la interfaz
+            cmbPaisDestino.Text = "Argentina";
         }
         private void BuscarObjetosLugares()
         {
@@ -470,6 +473,7 @@ namespace GRUPO_C.formularios
                 MostrarControlesDireccionDestino();
 
                 CargarRegionesInternacional();
+                cmbRegionDestino.SelectedIndex = 0;
             }
         }
 
@@ -679,7 +683,7 @@ namespace GRUPO_C.formularios
                 modalidadDestino = "INT";
             }
 
-            // Si coinciden en origen y destino region, provincia y localidad - El envio es misma Localalidad
+            // Si coinciden en origen y destino region, provincia y localidad - El envio es misma Localidad
             if((regionOrigen==regionDestino && provinciaOrigen == provinciaDestino && localidadOrigen == localidadDestino) && paisDestino.ToLower() == "argentina")
             {
                 if (indicepeso == 0)
@@ -875,32 +879,121 @@ namespace GRUPO_C.formularios
 
 
             // CALCULAR INTERNACIONAL: SI pais Destino != Argentina 
-            // Prototipo solo Europa
-            else if (paisDestino.ToLower() != "argentina" && regionDestino.ToLower() == "europa")
+
+            else if (paisDestino.ToLower() != "argentina")
             {
-                // Primero hasta CABA segun peso, y luego le sumo la europea
-                if (indicepeso == 0)
+                // Primero calculo Tarifa hasta CABA
+                tarifatotal = CalcularTarifaACABAParaInternacionales();
+
+
+                // Luego calculo tarifa segun peso y region de destino internacional
+
+                // EUROPA
+                if (cmbRegionDestino.Text.ToLower() == "europa")
                 {
-                    tarifatotal = CalcularTarifaACABAParaInternacionales();
-                    tarifatotal += tarifaEuropa500gr;
-                }
-                if (indicepeso == 1)
-                {
-                    tarifatotal = CalcularTarifaACABAParaInternacionales();
-                    tarifatotal += tarifaEuropa10kg;
-                }
-                if (indicepeso == 2)
-                {
-                    tarifatotal = CalcularTarifaACABAParaInternacionales();
-                    tarifatotal += tarifaEuropa20kg;
-                }
-                if (indicepeso == 3)
-                {
-                    tarifatotal = CalcularTarifaACABAParaInternacionales();
-                    tarifatotal += tarifaEuropa30kg;
+                    if (indicepeso == 0)
+                    {
+                        tarifatotal += tarifaEuropa500gr;
+                    }
+                    if (indicepeso == 1)
+                    {
+                        tarifatotal += tarifaEuropa10kg;
+                    }
+                    if (indicepeso == 2)
+                    {
+                        tarifatotal += tarifaEuropa20kg;
+                    }
+                    if (indicepeso == 3)
+                    {
+                        tarifatotal += tarifaEuropa30kg;
+                    }
                 }
 
-                // Servicio adicional internacionales solo Urgente y si Mosalidad Origen es Puerta
+                // PAISES LIMITROFES
+                if (cmbRegionDestino.Text.ToLower() == "paises limitrofes")
+                {
+                    if (indicepeso == 0)
+                    {
+                        tarifatotal += tarifaPaisLimitrofe500gr;
+                    }
+                    if (indicepeso == 1)
+                    {
+                        tarifatotal += tarifaPaisLimitrofe10kg;
+                    }
+                    if (indicepeso == 2)
+                    {
+                        tarifatotal += tarifaPaisLimitrofe20kg;
+                    }
+                    if (indicepeso == 3)
+                    {
+                        tarifatotal += tarifaPaisLimitrofe30kg;
+                    }
+                }
+
+                // AMERICA DEL NORTE
+                if (cmbRegionDestino.Text.ToLower() == "america del norte")
+                {
+                    if (indicepeso == 0)
+                    {
+                        tarifatotal += tarifaAmericaNorte500gr;
+                    }
+                    if (indicepeso == 1)
+                    {
+                        tarifatotal += tarifaAmericaNorte10kg;
+                    }
+                    if (indicepeso == 2)
+                    {
+                        tarifatotal += tarifaAmericaNorte20kg;
+                    }
+                    if (indicepeso == 3)
+                    {
+                        tarifatotal += tarifaAmericaNorte30kg;
+                    }
+                }
+
+                // AMERICA LATINA
+                if (cmbRegionDestino.Text.ToLower() == "america latina")
+                {
+                    if (indicepeso == 0)
+                    {
+                        tarifatotal += tarifaAmericaLatina500gr;
+                    }
+                    if (indicepeso == 1)
+                    {
+                        tarifatotal += tarifaAmericaLatina10kg;
+                    }
+                    if (indicepeso == 2)
+                    {
+                        tarifatotal += tarifaAmericaLatina20kg;
+                    }
+                    if (indicepeso == 3)
+                    {
+                        tarifatotal += tarifaAmericaLatina30kg;
+                    }
+                }
+
+                // ASIA
+                if (cmbRegionDestino.Text.ToLower() == "asia")
+                {
+                    if (indicepeso == 0)
+                    {
+                        tarifatotal += tarifaAsia500gr;
+                    }
+                    if (indicepeso == 1)
+                    {
+                        tarifatotal += tarifaAsia10kg;
+                    }
+                    if (indicepeso == 2)
+                    {
+                        tarifatotal += tarifaAsia20kg;
+                    }
+                    if (indicepeso == 3)
+                    {
+                        tarifatotal += tarifaAsia30kg;
+                    }
+                }
+
+                // Servicio adicional internacionales solo Urgente y si Modalidad Origen es Puerta
                 // Recargo Urgente Internacional
                 if (prioridad == "Urgente")
                 {

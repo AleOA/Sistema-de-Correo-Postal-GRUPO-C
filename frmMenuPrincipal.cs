@@ -35,19 +35,25 @@ namespace GRUPO_C
 
         private void SolicitudCancelacionEnvioMenu_Click(object sender, EventArgs e)
         {
-            formularios.frmSolicitudServicio frmSolicitudServicio = new formularios.frmSolicitudServicio();
-            frmSolicitudServicio.Show();
+            this.Hide();
+            using (formularios.frmSolicitudServicio frmSolicitudServicio = new formularios.frmSolicitudServicio())
+            frmSolicitudServicio.ShowDialog();
+            Show();
         }
 
         private void EstadoServicioMenuItem_Click(object sender, EventArgs e)
         {
-            formularios.frmEstadoServicio frmEstadoServicio = new formularios.frmEstadoServicio();
-            frmEstadoServicio.Show();
+            this.Hide();
+            using (formularios.frmEstadoServicio frmEstadoServicio = new formularios.frmEstadoServicio())
+            frmEstadoServicio.ShowDialog();
+            Show();
         }
         private void estadoDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formularios.frmEstadoCuenta frmEstadoCuenta = new formularios.frmEstadoCuenta();
-            frmEstadoCuenta.Show();
+            this.Hide();
+            using (formularios.frmEstadoCuenta frmEstadoCuenta = new formularios.frmEstadoCuenta())
+            frmEstadoCuenta.ShowDialog();
+            Show();
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)

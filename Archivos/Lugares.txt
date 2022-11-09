@@ -1,10 +1,68 @@
 Argentina;Metropolitana;Buenos Aires;Luján
 Argentina;Metropolitana;Buenos Aires;Tandil
+Argentina;Metropolitana;Buenos Aires;La Matanza
+Argentina;Metropolitana;Buenos Aires;La Plata
+Argentina;Metropolitana;Buenos Aires;Lomas de Zamora
+Argentina;Metropolitana;Buenos Aires;Mar del Plata
+Argentina;Metropolitana;Buenos Aires;Quilmes
+Argentina;Metropolitana;Buenos Aires;Almirante Brown
+Argentina;Metropolitana;Buenos Aires;Merlo
+Argentina;Metropolitana;Buenos Aires;Lanús
+Argentina;Metropolitana;Buenos Aires;Moreno
+Argentina;Metropolitana;Buenos Aires;Florencio Varela
+Argentina;Metropolitana;Buenos Aires;General San Martín
+Argentina;Metropolitana;Buenos Aires;Tigre
+Argentina;Metropolitana;Buenos Aires;Avellaneda
+Argentina;Metropolitana;Buenos Aires;Tres de Febrero
+Argentina;Metropolitana;Buenos Aires;Berazategui
+Argentina;Metropolitana;Buenos Aires;San Pedro
+Argentina;Metropolitana;Buenos Aires;Azul
+Argentina;Metropolitana;Buenos Aires;Marcos Paz
+Argentina;Metropolitana;Buenos Aires;Chascomús
+Argentina;Metropolitana;Buenos Aires;Pehuajó
+Argentina;Metropolitana;Buenos Aires;Villa Gesell
+Argentina;Metropolitana;Buenos Aires;Pinamar
+Argentina;Metropolitana;Buenos Aires;Coronel Suárez
+Argentina;Metropolitana;Buenos Aires;Carlos Casares
+Argentina;Metropolitana;Buenos Aires;Cañuelas
 Argentina;Metropolitana;CABA;CABA
 Argentina;Sur;Santa Cruz;Río Gallegos
 Argentina;Sur;Santa Cruz;El Calafate
+Argentina;Sur;Santa Cruz;Caleta Olivia
+Argentina;Sur;Santa Cruz;Pico Truncado
+Argentina;Sur;Santa Cruz;Las Heras
+Argentina;Sur;Santa Cruz;Puerto Deseado
 Argentina;Sur;Río Negro;San Carlos de Bariloche
 Argentina;Sur;Río Negro;Viedma
+Argentina;Sur;Río Negro;General Roca
+Argentina;Sur;Río Negro;Cipolletti
+Argentina;Sur;Río Negro;Villa Regina
+Argentina;Sur;Río Negro;Allen
+Argentina;Sur;Río Negro;Cinco Saltos
+Argentina;Centro;Córdoba;Córdoba
+Argentina;Centro;Córdoba;Villa Carlos Paz
+Argentina;Centro;Córdoba;Corral de Bustos
+Argentina;Centro;Córdoba;Río Cuarto
+Argentina;Centro;Córdoba;Villa María
+Argentina;Centro;Córdoba;San Francisco
+Argentina;Centro;Córdoba;Alta Gracia
+Argentina;Centro;Córdoba;Río Tercero
+Argentina;Centro;Córdoba;Bell Ville
+Argentina;Centro;Córdoba;La Calera
+Argentina;Centro;Córdoba;Jesús María
+Argentina;Norte;Chaco;Resistencia
+Argentina;Norte;Chaco;Presidencia Roque Sáenz Peña
+Argentina;Norte;Chaco;Barranqueras
+Argentina;Norte;Chaco;Villa Ángela
+Argentina;Norte;Chaco;Fontana
+Argentina;Norte;Chaco;General José de San Martín
 España;Europa;null;null
 Portugal;Europa;null;null
-Estados Unidos; America del Norte;null;null
+Estados Unidos;America del Norte;null;null
+Canadá;America del Norte;null;null
+Uruguay;Paises Limitrofes;null;null
+Chile;Paises Limitrofes;null;null
+Colombia;America Latina;null;null
+Venezuela;America Latina;null;null
+Japon;Asia;null;null
+India;Asia;null;null
