@@ -65,7 +65,7 @@ namespace GRUPO_C.formularios
         {
             BuscarObjetosLugares();
             BuscarTarifas();
-            CargarRegionesOrigenNacional();
+            CargarProvinciasOrigenNacional();
             CargarPaisesDestino();
 
             // Selecciono Destino Argentina por defecto al cargar el formulario para mejorar la interfaz
@@ -96,14 +96,14 @@ namespace GRUPO_C.formularios
                     listalugares.Add(lugar);
                 }
         }
-        private void CargarRegionesOrigenNacional()
+        private void CargarProvinciasOrigenNacional()
         {
 
             foreach (Lugar lugar in listalugares)
             {
-                if((cmbRegionOrigen.Items.Contains(lugar.Region) == false) && (lugar.Pais.ToLower() == "argentina"))
+                if((cmbProvinciaOrigen.Items.Contains(lugar.Provincia) == false) && (lugar.Pais.ToLower() == "argentina"))
                 {
-                    cmbRegionOrigen.Items.Add(lugar.Region);
+                    cmbProvinciaOrigen.Items.Add(lugar.Provincia);
                 }
             }
         }
@@ -451,15 +451,18 @@ namespace GRUPO_C.formularios
             // como selecciono un pais nuevo, borro las regiones cargadas por si habia alguna y demas combobox
             cmbRegionDestino.Items.Clear();
             cmbProvinciaDestino.Items.Clear();
+            cmbProvinciaDestino.SelectedIndex = -1;
             cmbLocalidadDestino.Items.Clear();
+            cmbLocalidadDestino.SelectedIndex = -1;
 
             // Si el pais de destino es Argentina, activo combobox provincia
             if (cmbPaisDestino.Text.ToLower() == "argentina")
             {
-                cmbProvinciaDestino.Enabled = false;
+                cmbProvinciaDestino.Enabled = true;
+                cmbRegionDestino.Enabled = false;
                 cmbLocalidadDestino.Enabled = false;
                 cmbModalidadDestino.Enabled = true;
-                CargarRegionesDestinoNacional();
+                CargarProvinciasDestinoNacional();
             }
             if (cmbPaisDestino.Text.ToLower() != "argentina")
             {
@@ -493,45 +496,13 @@ namespace GRUPO_C.formularios
             }
         }
 
-        private void CargarRegionesDestinoNacional()
+        private void CargarProvinciasDestinoNacional()
         {
-            string paisDestinoSeleccionado = cmbPaisDestino.Text;
-
-            // Busco las regiones que corresponden al Pais seleccionado, en la lista de Lugares y las agrego al combobox de Regiones
-
-            List<Lugar> listalugaresregionescompatibles = listalugares.FindAll(o => o.Pais == paisDestinoSeleccionado); //Lista con los lugares que corresponden al pais seleccionado (ACA SOLO SERIA ARGENTINA).
-            foreach (Lugar l in listalugaresregionescompatibles)
+            foreach (Lugar lugar in listalugares)
             {
-                if (cmbRegionDestino.Items.Contains(l.Region) == false)
+                if ((cmbProvinciaDestino.Items.Contains(lugar.Provincia) == false) && (lugar.Pais.ToLower() == "argentina"))
                 {
-                    cmbRegionDestino.Items.Add(l.Region);
-                }
-            }
-        }
-
-        private void cmbRegionDestino_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // borro provincias y localidades cargadas anteriores si ya habian
-            if (cmbPaisDestino.Text.ToLower() == "argentina")
-            {
-                cmbProvinciaDestino.Items.Clear();
-                cmbProvinciaDestino.Enabled = true;
-                cmbLocalidadDestino.Items.Clear();
-                cmbLocalidadDestino.Enabled = false;
-            }
-
-            // cargo provincias nacionales en base a region elegida
-            string paisDestinoSeleccionado = cmbPaisDestino.Text.ToLower();
-            string regionDestinoSeleccionada = cmbRegionDestino.Text;
-
-            // Busco las Provincias que corresponden a la Region seleccionada, en la lista de Lugares y las agrego al combobox de Provincias
-
-            List<Lugar> listalugaresprovinciascompatibles = listalugares.FindAll(o => o.Pais.ToLower() == paisDestinoSeleccionado && o.Region == regionDestinoSeleccionada); //Lista con los lugares que corresponden al pais seleccionado y Region
-            foreach (Lugar l in listalugaresprovinciascompatibles)
-            {
-                if (cmbProvinciaDestino.Items.Contains(l.Provincia) == false)
-                {
-                    cmbProvinciaDestino.Items.Add(l.Provincia);
+                    cmbProvinciaDestino.Items.Add(lugar.Provincia);
                 }
             }
         }
@@ -541,15 +512,22 @@ namespace GRUPO_C.formularios
             // borro localidades cargadas anteriores si ya habian
             cmbLocalidadDestino.Items.Clear();
             cmbLocalidadDestino.Enabled = true;
-
+            cmbLocalidadDestino.SelectedIndex = -1;
 
             // cargo localidades provinciales en base a provincia elegida
             string paisDestinoSeleccionado = cmbPaisDestino.Text.ToLower();
-            string regionDestinoSeleccionada = cmbRegionDestino.Text;
             string provinciaSeleccionada = cmbProvinciaDestino.Text;
 
-            // Busco las Localidades que corresponden a la Provincia seleccionada, en la lista de Lugares y las agrego al combobox de Localidades
 
+            // En base a Provincia selecciono region, devuelve el objeto con la primera aparicion de la Provincia en la lista, y de ese objeto obtengo la region
+            Lugar objetoregionencontrada = listalugares.Find(o => o.Provincia == provinciaSeleccionada);
+            cmbRegionDestino.Items.Add(objetoregionencontrada.Region);
+            cmbRegionDestino.Text = objetoregionencontrada.Region;
+
+            string regionDestinoSeleccionada = cmbRegionDestino.Text;
+
+
+            // Busco las Localidades que corresponden a la Provincia seleccionada, en la lista de Lugares y las agrego al combobox de Localidades
             List<Lugar> listalugareslocalidadescompatibles = listalugares.FindAll(o => o.Pais.ToLower() == paisDestinoSeleccionado && o.Region == regionDestinoSeleccionada && o.Provincia == provinciaSeleccionada); //Lista con los lugares que corresponden al pais seleccionado y Region
             foreach (Lugar l in listalugareslocalidadescompatibles)
             {
@@ -605,34 +583,24 @@ namespace GRUPO_C.formularios
 
         private void cmbRegionOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            // Activo listado de Provincias y borro provincias - localidades cargadas anteriores si ya habian
-            cmbProvinciaOrigen.Enabled = true;
-            cmbProvinciaOrigen.Items.Clear();
             cmbLocalidadOrigen.Items.Clear();
-            cmbLocalidadOrigen.Enabled = false;
-
-            string regionOrigenSeleccionada = cmbRegionOrigen.Text;
-
-            // Busco las provincias que corresponden a la region seleccionada en la lista de Lugares y las agrego al combobox de Provincias
-
-            List<Lugar> listalugaresprovinciascompatibles = listalugares.FindAll(o => o.Region == regionOrigenSeleccionada); //Lista con los lugares que corresponden con la region seleccionada.
-            foreach (Lugar l in listalugaresprovinciascompatibles)
-            {
-                if(cmbProvinciaOrigen.Items.Contains(l.Provincia) == false)
-                {
-                    cmbProvinciaOrigen.Items.Add(l.Provincia);
-                }
-            }
+            cmbLocalidadOrigen.Enabled = true;
         }
 
         private void cmbProvinciaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // borro localidades cargadas anteriores si ya habian
+            string ProvinciaOrigenSeleccionada = cmbProvinciaOrigen.Text;
+
+            // En base a Provincia selecciono region, devuelve el objeto con la primera aparicion de la Provincia en la lista, y de ese objeto obtengo la region
+            Lugar objetoregionencontrada = listalugares.Find(o => o.Provincia == ProvinciaOrigenSeleccionada);
+            cmbRegionOrigen.Items.Add(objetoregionencontrada.Region);
+            cmbRegionOrigen.Text = objetoregionencontrada.Region;
+
+
+            // Borro localidades cargadas anteriores si ya habian
             cmbLocalidadOrigen.Enabled = true;
             cmbLocalidadOrigen.Items.Clear();
-
-            string ProvinciaOrigenSeleccionada = cmbProvinciaOrigen.Text;
+            cmbLocalidadOrigen.SelectedIndex = -1;
 
             // Busco las Localidades que corresponden a la provincia seleccionada en la lista de Lugares y las agrego al combobox de Localidades
 
@@ -883,7 +851,7 @@ namespace GRUPO_C.formularios
             else if (paisDestino.ToLower() != "argentina")
             {
                 // Primero calculo Tarifa hasta CABA
-                tarifatotal = CalcularTarifaACABAParaInternacionales();
+                tarifatotal += CalcularTarifaACABAParaInternacionales();
 
 
                 // Luego calculo tarifa segun peso y region de destino internacional
@@ -994,7 +962,7 @@ namespace GRUPO_C.formularios
                 }
 
                 // Servicio adicional internacionales solo Urgente y si Modalidad Origen es Puerta
-                // Recargo Urgente Internacional
+                // Recargo Urgente Internacional sobre la tarifa de region internacional
                 if (prioridad == "Urgente")
                 {
                     float calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
@@ -1214,12 +1182,64 @@ namespace GRUPO_C.formularios
 
         private void frmSolicitudServicio_MouseEnter(object sender, EventArgs e)
         {
-            lblDetalleTarifas.Text = "$"+Convert.ToString(CalcularTarifas());
+            if (cmbPaisDestino.Text.ToLower() == "argentina")
+            {
+                if (cmbProvinciaOrigen.SelectedIndex != -1 && cmbRegionOrigen.SelectedIndex != -1 && cmbLocalidadOrigen.SelectedIndex != -1 &&
+                    cmbModalidadOrigen.SelectedIndex != -1 && cmbPeso.SelectedIndex != -1 && cmbPrioridad.SelectedIndex != -1 &&
+                    cmbRegionDestino.SelectedIndex != -1 && cmbProvinciaDestino.SelectedIndex != -1 && cmbLocalidadDestino.SelectedIndex != -1 &&
+                    cmbModalidadDestino.SelectedIndex != -1)
+                {
+                    lblTarifaTiempoReal.Visible = true;
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                }
+            }
+
+            if (cmbPaisDestino.Text.ToLower() != "argentina")
+            {
+                if (cmbProvinciaOrigen.SelectedIndex != -1 && cmbRegionOrigen.SelectedIndex != -1 && cmbLocalidadOrigen.SelectedIndex != -1 &&
+                    cmbModalidadOrigen.SelectedIndex != -1 && cmbPeso.SelectedIndex != -1 && cmbPrioridad.SelectedIndex != -1 &&
+                    cmbRegionDestino.SelectedIndex != -1)
+                {
+                    lblTarifaTiempoReal.Visible = true;
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                }
+            }
         }
 
         private void frmSolicitudServicio_MouseLeave(object sender, EventArgs e)
         {
-            lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+            if (cmbPaisDestino.Text.ToLower() == "argentina")
+            {
+                if (cmbProvinciaOrigen.SelectedIndex != -1 && cmbRegionOrigen.SelectedIndex != -1 && cmbLocalidadOrigen.SelectedIndex != -1 &&
+                    cmbModalidadOrigen.SelectedIndex != -1 && cmbPeso.SelectedIndex != -1 && cmbPrioridad.SelectedIndex != -1 &&
+                    cmbRegionDestino.SelectedIndex != -1 && cmbProvinciaDestino.SelectedIndex != -1 && cmbLocalidadDestino.SelectedIndex != -1 &&
+                    cmbModalidadDestino.SelectedIndex != -1)
+                {
+                    lblTarifaTiempoReal.Visible = true;
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                }
+                else
+                {
+                    lblTarifaTiempoReal.Visible = false;
+                    lblDetalleTarifas.Text = "";
+                }
+            }
+
+            if (cmbPaisDestino.Text.ToLower() != "argentina")
+            {
+                if (cmbProvinciaOrigen.SelectedIndex != -1 && cmbRegionOrigen.SelectedIndex != -1 && cmbLocalidadOrigen.SelectedIndex != -1 &&
+                    cmbModalidadOrigen.SelectedIndex != -1 && cmbPeso.SelectedIndex != -1 && cmbPrioridad.SelectedIndex != -1 &&
+                    cmbRegionDestino.SelectedIndex != -1)
+                {
+                    lblTarifaTiempoReal.Visible = true;
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                }
+                else
+                {
+                    lblTarifaTiempoReal.Visible = false;
+                    lblDetalleTarifas.Text = "";
+                }
+            }
         }
     }
 }

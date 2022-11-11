@@ -20,7 +20,7 @@ namespace GRUPO_C
         // LOGIN
         List<ClienteCorporativo> listaClientesCorporativos = new List<ClienteCorporativo>();
         ClienteCorporativo cliente;
-        public static int numerocliente;
+        public static int numerocliente; // IMPORTANTE: ESTE VA A SER EL NUMERO DE CLIENTE DEL USUARIO LOGEADO. LOS OTROS MODULOS VAN A VENIR A LEERLO.
 
         public frmMenuPrincipal()
         {

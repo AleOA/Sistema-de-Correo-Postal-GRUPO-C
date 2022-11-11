@@ -219,7 +219,7 @@
             // lblProvinciaOrigen
             // 
             this.lblProvinciaOrigen.AutoSize = true;
-            this.lblProvinciaOrigen.Location = new System.Drawing.Point(22, 91);
+            this.lblProvinciaOrigen.Location = new System.Drawing.Point(23, 55);
             this.lblProvinciaOrigen.Name = "lblProvinciaOrigen";
             this.lblProvinciaOrigen.Size = new System.Drawing.Size(139, 20);
             this.lblProvinciaOrigen.TabIndex = 26;
@@ -228,9 +228,8 @@
             // cmbProvinciaOrigen
             // 
             this.cmbProvinciaOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProvinciaOrigen.Enabled = false;
             this.cmbProvinciaOrigen.FormattingEnabled = true;
-            this.cmbProvinciaOrigen.Location = new System.Drawing.Point(187, 88);
+            this.cmbProvinciaOrigen.Location = new System.Drawing.Point(187, 52);
             this.cmbProvinciaOrigen.MaxDropDownItems = 50;
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
             this.cmbProvinciaOrigen.Size = new System.Drawing.Size(206, 28);
@@ -259,7 +258,7 @@
             // lblRegionOrigen
             // 
             this.lblRegionOrigen.AutoSize = true;
-            this.lblRegionOrigen.Location = new System.Drawing.Point(22, 52);
+            this.lblRegionOrigen.Location = new System.Drawing.Point(23, 94);
             this.lblRegionOrigen.Name = "lblRegionOrigen";
             this.lblRegionOrigen.Size = new System.Drawing.Size(126, 20);
             this.lblRegionOrigen.TabIndex = 30;
@@ -298,8 +297,9 @@
             // cmbRegionOrigen
             // 
             this.cmbRegionOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRegionOrigen.Enabled = false;
             this.cmbRegionOrigen.FormattingEnabled = true;
-            this.cmbRegionOrigen.Location = new System.Drawing.Point(187, 49);
+            this.cmbRegionOrigen.Location = new System.Drawing.Point(187, 91);
             this.cmbRegionOrigen.MaxDropDownItems = 10;
             this.cmbRegionOrigen.Name = "cmbRegionOrigen";
             this.cmbRegionOrigen.Size = new System.Drawing.Size(206, 28);
@@ -365,6 +365,7 @@
             // cmbRegionDestino
             // 
             this.cmbRegionDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRegionDestino.Enabled = false;
             this.cmbRegionDestino.FormattingEnabled = true;
             this.cmbRegionDestino.Location = new System.Drawing.Point(968, 85);
             this.cmbRegionDestino.MaxDropDownItems = 10;
@@ -372,7 +373,6 @@
             this.cmbRegionDestino.Size = new System.Drawing.Size(175, 28);
             this.cmbRegionDestino.Sorted = true;
             this.cmbRegionDestino.TabIndex = 40;
-            this.cmbRegionDestino.SelectedIndexChanged += new System.EventHandler(this.cmbRegionDestino_SelectedIndexChanged);
             // 
             // lblProvinciaDestino
             // 
@@ -542,18 +542,18 @@
             this.lblDetalleTarifas.Name = "lblDetalleTarifas";
             this.lblDetalleTarifas.Size = new System.Drawing.Size(203, 47);
             this.lblDetalleTarifas.TabIndex = 57;
-            this.lblDetalleTarifas.Text = "0";
             this.lblDetalleTarifas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblTarifaTiempoReal
             // 
             this.lblTarifaTiempoReal.AutoSize = true;
             this.lblTarifaTiempoReal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTarifaTiempoReal.Location = new System.Drawing.Point(697, 341);
+            this.lblTarifaTiempoReal.Location = new System.Drawing.Point(766, 341);
             this.lblTarifaTiempoReal.Name = "lblTarifaTiempoReal";
-            this.lblTarifaTiempoReal.Size = new System.Drawing.Size(165, 20);
+            this.lblTarifaTiempoReal.Size = new System.Drawing.Size(49, 20);
             this.lblTarifaTiempoReal.TabIndex = 58;
-            this.lblTarifaTiempoReal.Text = "Tarifa en Tiempo Real:";
+            this.lblTarifaTiempoReal.Text = "Tarifa";
+            this.lblTarifaTiempoReal.Visible = false;
             // 
             // frmSolicitudServicio
             // 
