@@ -492,10 +492,7 @@ namespace GRUPO_C.formularios
                 //string path = "Archivos/OrdenDeServicio.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
 
                 using (StreamWriter sw = new StreamWriter(path, true))
-                    sw.WriteLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13};{14};{15};{16};{17};{18}",
-                            orden.IdOrden, orden.NumeroCliente, orden.Fecha, orden.Prioridad, orden.Peso, orden.ProvinciaOrigen, orden.RegionOrigen, orden.LocalidadOrigen, orden.ModalidadOrigen,
-                            orden.PaisDestino, orden.ProvinciaDestino, orden.RegionDestino, orden.LocalidadDestino, orden.ModalidadDestino, orden.DireccionOrigen, orden.DireccionDestino,
-                            orden.Tarifa, orden.EstaFacturada, orden.DescripcionEstadoOrdenServicio));
+                    sw.WriteLine(orden.ToCSV());
 
                 string mensajeExitosoSolServicio = "Se cargo la solicitud con éxito!." + "\n" +
                 "Tarifa: $" + orden.Tarifa + "\n" +

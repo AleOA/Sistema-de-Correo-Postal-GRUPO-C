@@ -44,13 +44,13 @@ namespace GRUPO_C.formularios
               Tarifa, EstaFacturada, DescripcionEstadoOrdenServicio);
         }
 
-        //public string ToCSV()
-        //{
-        //    return string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13};{14};{15};{16};{17};{18};{19}",
-        //        IdOrden, NumeroCliente, Fecha, Prioridad, Peso, ProvinciaOrigen, RegionOrigen, LocalidadOrigen, ModalidadOrigen,
-        //        PaisDestino, ProvinciaDestino, RegionDestino, LocalidadDestino, ModalidadDestino, DireccionOrigen, DireccionDestino,
-        //        Tarifa, EstaFacturada, DescripcionEstadoOrdenServicio);
-        //}
+        public string ToCSV()
+        {
+            return string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13};{14};{15};{16};{17};{18}",
+                IdOrden, NumeroCliente, Fecha, Prioridad, Peso, ProvinciaOrigen, RegionOrigen, LocalidadOrigen, ModalidadOrigen,
+                PaisDestino, ProvinciaDestino, RegionDestino, LocalidadDestino, ModalidadDestino, DireccionOrigen, DireccionDestino,
+                Tarifa, EstaFacturada, DescripcionEstadoOrdenServicio);
+        }
     }
 
 }
