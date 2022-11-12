@@ -12,8 +12,12 @@ namespace GRUPO_C.formularios
 {
     public partial class frmEstadoServicio : Form
     {
-        List<int> listaSolicitudes = new List<int>();
-        List<string> listaEstados = new List<string>();
+        List<int> listaSolicitudes = new List<int>(); // BORRAR
+        List<string> listaEstados = new List<string>(); // BORRAR
+
+
+        List<OrdenDeServicio> listaOrdenesdeServicioanteriores = new List<OrdenDeServicio>();
+        List<int> numerosordenesusuario = new List<int>();
 
         public frmEstadoServicio()
         {
@@ -22,11 +26,51 @@ namespace GRUPO_C.formularios
 
         private void btnConsultarEstado_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrEmpty(txtIngreseNumSol.Text)){
                 MessageBox.Show("Debe ingresar el numero de envío", "Error");
             } 
             else
             {
+                // Acceder al archivo de esta manera si el proyecto se esta ejecutando desde la carpeta bin
+                string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\", "Archivos/OrdenDeServicio.txt");
+
+                //string path = "Archivos/OrdenDeServicio.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
+
+                using (StreamReader sr = new StreamReader(path))
+
+                    while (!sr.EndOfStream)
+                    {
+                        string linea = sr.ReadLine();
+                        string[] vector = linea.Split(';');
+
+                        if (frmMenuPrincipal.numerocliente == int.Parse(vector[1]))
+                        {
+                            OrdenDeServicio ordendeservicio = new OrdenDeServicio();
+                            ordendeservicio.IdOrden = int.Parse(vector[0]);
+                            numerosordenesusuario.Add(int.Parse(vector[0]));
+                            ordendeservicio.NumeroCliente = int.Parse(vector[1]);
+                            ordendeservicio.Fecha = DateTime.Parse(vector[2]);
+                            ordendeservicio.Prioridad = vector[3];
+                            ordendeservicio.Peso = vector[4];
+                            ordendeservicio.ProvinciaOrigen = vector[5];
+                            ordendeservicio.RegionOrigen = vector[6];
+                            ordendeservicio.LocalidadOrigen = vector[7];
+                            ordendeservicio.ModalidadOrigen = vector[8];
+                            ordendeservicio.PaisDestino = vector[9];
+                            ordendeservicio.ProvinciaDestino = vector[10];
+                            ordendeservicio.RegionDestino = vector[11];
+                            ordendeservicio.LocalidadDestino = vector[12];
+                            ordendeservicio.ModalidadDestino = vector[13];
+                            ordendeservicio.DireccionOrigen = vector[14];
+                            ordendeservicio.DireccionDestino = vector[15];
+                            ordendeservicio.Tarifa = float.Parse(vector[16]);
+                            ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
+                            ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
+                            listaOrdenesdeServicioanteriores.Add(ordendeservicio);
+                        }
+                    }
+
                 string numeroIngresado = txtIngreseNumSol.Text;
                 bool flagNumero;
                 int numerosolicitud;
@@ -36,41 +80,18 @@ namespace GRUPO_C.formularios
                 {
                     MessageBox.Show("El campo debe ser numérico y entero", "Error");
                 }
-                else if (!listaSolicitudes.Contains(numerosolicitud))
+                else if (!numerosordenesusuario.Contains(numerosolicitud))
                 {
                     MessageBox.Show("No se pudo encontrar la solicitud ingresada", "Error");
                 }
                 else
                 {
-                    // En el prototipo le asigno de prueba:
-                    // Solicitud numero 1 le asigno el estado recibida
-                    // Solicitud numero 2 le asigno el estado en transito
-                    // Solicitud numero 3 le asigno el estado cerrada
 
-                    //EN TP FINAL los datos se llenan del archivo
+                    OrdenDeServicio orden = listaOrdenesdeServicioanteriores.Find(o => o.IdOrden == numerosolicitud);
+                    string mensaje = orden.ToString();
 
-                    if(numerosolicitud == 1)
-                    {
-                        MessageBox.Show("El estado de la solictud " + numerosolicitud + " es: " + listaEstados[0] + "\n" + "\n"
-                            + "Region Origen: Metropolitana"+ "\n" + "Provincia Origen: Buenos Aires" + "\n" + "Localidad Origen: Tandil" + "\n"
-                            + "Modalidad Origen: Sucursal" + "\n" + "Peso (KG): 10-20" + "\n" + "Prioridad: No Urgente" + "\n"
-                            + "Pais Destino: Argentina" + "\n" + "Region Destino: Metropolitana" + "\n" + "Provincia Destino: Buenos Aires" + "\n"
-                            + "Localidad Destino: Tandil" + "\n" + "Modalidad Destino: Sucursal" + "\n" + "Tarifa: 4200$" + "\n");
-                    } else if (numerosolicitud == 2)
-                    {
-                        MessageBox.Show("El estado de la solictud " + numerosolicitud + " es: " + listaEstados[1] + "\n" + "\n"
-                            + "Region Origen: Metropolitana" + "\n" + "Provincia Origen: CABA" + "\n" + "Localidad Origen: CABA " + "\n"
-                            + "Modalidad Origen: Sucursal" + "\n" + "Peso (KG): 20-30" + "\n" + "Prioridad: No Urgente" + "\n"
-                            + "Pais Destino: España" + "\n" + "Region Destino: Europa" + "\n" + "Direccion Destino: bartolome mitre 24533" 
-                            + "\n" + "Tarifa: $12825" + "\n");
-                    } else if(numerosolicitud == 3)
-                    {
-                        MessageBox.Show("El estado de la solictud " + numerosolicitud + " es: " + listaEstados[2] + "\n" + "\n"
-                            + "Region Origen: Sur" + "\n" + "Provincia Origen: Santa Cruz" + "\n" + "Localidad Origen: El Calafate" + "\n"
-                            + "Modalidad Origen: Puerta" + "\n"+ "Direccion: rivadavia 34235" + "\n" + "Peso (KG): 0-0.5" + "\n" + "Prioridad: Urgente" + "\n"
-                            + "Pais Destino: Argentina" + "\n" + "Region Destino: Metroplitana" + "\n" + "Provincia Destino: Buenos Aires" + "\n"
-                            + "Localidad Destino: Lujan" + "\n" + "Modalidad Destino: Sucursal" + "\n" + "Tarifa: $4925" + "\n");
-                    }
+
+                    MessageBox.Show(mensaje, numeroIngresado);
                 }
             }
         }

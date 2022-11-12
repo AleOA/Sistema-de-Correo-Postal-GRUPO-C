@@ -23,3 +23,11 @@ Asia;Precio 0-0.5kg;Precio 0.5kg-10;Precio 10-20kg;Precio 20-30kg
 Adicional;%Urgente;Precio TopeUrgente;Precio Retiro en Puerta;Precio Entrega en Puerta
 
 - OrdendeServicio
+IdOrden,NumeroCliente,Fecha,TipoProducto,Prioridad,Peso,ProvinciaOrigen,RegionOrigen,LocalidadOrigen,ModalidadOrigen,PaisDestino,ProvinciaDestino,RegionDestino,LocalidadDestino,Modalidad Destino,DireccionOrigen,DireccionDestino,Tarifa,EstaFacturada,DescripcionEstadoOrdenServicio
+
+CAMBIAR Tarifa float a decimal.
+Agregar Confirmacion.
+Orden de servicio: vaciar todos los controles al cargarla.
+Estado Orden de servicio: Formatear el mensaje a mostrar de la orden.
+
+
