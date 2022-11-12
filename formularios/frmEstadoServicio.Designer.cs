@@ -31,7 +31,6 @@
             this.lblIngreseNumeroSol = new System.Windows.Forms.Label();
             this.txtIngreseNumSol = new System.Windows.Forms.TextBox();
             this.btnConsultarEstado = new System.Windows.Forms.Button();
-            this.lblComentario = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblIngreseNumeroSol
@@ -61,22 +60,11 @@
             this.btnConsultarEstado.UseVisualStyleBackColor = true;
             this.btnConsultarEstado.Click += new System.EventHandler(this.btnConsultarEstado_Click);
             // 
-            // lblComentario
-            // 
-            this.lblComentario.AutoSize = true;
-            this.lblComentario.Location = new System.Drawing.Point(47, 238);
-            this.lblComentario.Name = "lblComentario";
-            this.lblComentario.Size = new System.Drawing.Size(699, 20);
-            this.lblComentario.TabIndex = 3;
-            this.lblComentario.Text = "Para el prototipo, solo existe solicitud con numero: 1, 2 y 3. Cada una con un es" +
-    "tado diferente de prueba.";
-            // 
             // frmEstadoServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 277);
-            this.Controls.Add(this.lblComentario);
             this.Controls.Add(this.btnConsultarEstado);
             this.Controls.Add(this.txtIngreseNumSol);
             this.Controls.Add(this.lblIngreseNumeroSol);
@@ -93,6 +81,5 @@
         private Label lblIngreseNumeroSol;
         private TextBox txtIngreseNumSol;
         private Button btnConsultarEstado;
-        private Label lblComentario;
     }
 }

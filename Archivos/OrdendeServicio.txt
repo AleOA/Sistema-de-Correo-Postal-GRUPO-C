@@ -1,6 +1,6 @@
 500000;999999;12/11/2022 11:52:23 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;17100;False;Recibida
-500001;999999;12/11/2021 11:52:24 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;17100;True;Recibida
-500002;999999;12/10/2022 11:52:25 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;17100;True;Recibida
+500001;999999;12/11/2021 11:52:24 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;17100;True;En Transito
+500002;999999;12/10/2022 11:52:25 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;17100;True;Cancelada
 500003;999999;12/11/2022 11:52:25 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;17100;False;Recibida
 500004;999999;12/11/2022 11:52:28 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Chaco;Norte;Fontana;Sucursal;N/A;N/A;9900;False;Recibida
 500005;999999;12/11/2022 11:52:29 am;Urgente;10-20;Chaco;Norte;Presidencia Roque Sáenz Peña;Sucursal;Argentina;Chaco;Norte;Fontana;Sucursal;N/A;N/A;9900;False;Recibida
