@@ -173,32 +173,40 @@ namespace GRUPO_C.formularios
                     f.Importe = float.Parse(vector[4]);
 
                     listaFacturas.Add(f);
-                    if (vector[3] == "Pendiente de Pago")
-                    {
-                        listaFacturasPendientesPago.Add(f);
-                    }
-                    else
-                    {
-                        listaFacturasPagas.Add(f);
-                    }
 
+                    if(f.NumeroCliente == frmMenuPrincipal.numerocliente)
+                    {
+                        if (vector[3] == "Pendiente de Pago")
+                        {
+                            listaFacturasPendientesPago.Add(f);
+                        }
+                        else
+                        {
+                            listaFacturasPagas.Add(f);
+                        }
+                    }
                 }
 
 
             // MUESTRO ESTADO DE CUENTA
             foreach(Factura f in listaFacturasPendientesPago)
             {
-                 lstFacturasAPagar.Items.Add("Factura: " + f.IdOrden + " - $" + f.Importe + " ~ Fecha: " + f.Fecha);
+                if(f.NumeroCliente == frmMenuPrincipal.numerocliente)
+                {
+                    lstFacturasAPagar.Items.Add("Factura: " + f.IdOrden + " - $" + f.Importe + " ~ Fecha: " + f.Fecha);
+                }
 
             }
             foreach (Factura f in listaFacturasPagas)
             {
-
-                lvwFacturasPagadas.Items.Add("Factura: " + f.IdOrden + " - $" + f.Importe + " ~ Fecha: " + f.Fecha);
+                if (f.NumeroCliente == frmMenuPrincipal.numerocliente)
+                {
+                    lvwFacturasPagadas.Items.Add("Factura: " + f.IdOrden + " - $" + f.Importe + " ~ Fecha: " + f.Fecha);
+                }
             }
             foreach (OrdenDeServicio o in listaOrdenesdeServicio)
             {
-                if (o.EstaFacturada == false)
+                if (o.EstaFacturada == false && (o.NumeroCliente == frmMenuPrincipal.numerocliente))
                 {
                     lvwPendienteFacturar.Items.Add("Orden: " + o.IdOrden + " - $" + o.Tarifa + " ~ Fecha: " + o.Fecha);
                 }
