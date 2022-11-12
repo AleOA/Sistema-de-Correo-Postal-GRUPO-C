@@ -190,7 +190,10 @@ namespace GRUPO_C.formularios
             }
             foreach (OrdenDeServicio o in listaOrdenesdeServicio)
             {
-                lvwPendienteFacturar.Items.Add(o.ToCSV());
+                if (o.EstaFacturada == false)
+                {
+                    lvwPendienteFacturar.Items.Add(o.ToCSV());
+                }
             }
 
             if (listaFacturasPendientesPago.Count == 0)
