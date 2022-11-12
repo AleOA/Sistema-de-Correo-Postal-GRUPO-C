@@ -32,6 +32,5 @@ IDOrden;Fecha;NumeroCliente;Estado;Importe
 CAMBIAR Tarifa float a decimal.
 Agregar Confirmacion.
 Orden de servicio: vaciar todos los controles al cargarla.
-Estado Orden de servicio: Formatear el mensaje a mostrar de la orden.
 
 

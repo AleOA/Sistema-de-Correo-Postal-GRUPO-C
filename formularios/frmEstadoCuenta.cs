@@ -241,53 +241,57 @@ namespace GRUPO_C.formularios
             else if (lstFacturasAPagar.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar una factura a pagar.", "Error.");
-            } else
+            } 
+            else
             {
-                // FALTA VER ESTO
-                int indiceSeleccionado = lstFacturasAPagar.SelectedIndex;
+                var confirmResult = MessageBox.Show("¿Estás seguro?", "Confirmacion", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    int indiceSeleccionado = lstFacturasAPagar.SelectedIndex;
 
-                Factura facturaseleccionada = listaFacturasPendientesPago[indiceSeleccionado];
-                listaFacturas.Remove(facturaseleccionada);
+                    Factura facturaseleccionada = listaFacturasPendientesPago[indiceSeleccionado];
+                    listaFacturas.Remove(facturaseleccionada);
 
-                int ordenFacturaSeleccionada = facturaseleccionada.IdOrden;
+                    int ordenFacturaSeleccionada = facturaseleccionada.IdOrden;
 
-                Factura factura = new Factura();
-                factura.IdOrden = facturaseleccionada.IdOrden;
-                factura.Fecha = facturaseleccionada.Fecha;
-                factura.NumeroCliente = facturaseleccionada.NumeroCliente;
-                factura.Estado = "Pagada";
-                factura.Importe = facturaseleccionada.Importe;
+                    Factura factura = new Factura();
+                    factura.IdOrden = facturaseleccionada.IdOrden;
+                    factura.Fecha = facturaseleccionada.Fecha;
+                    factura.NumeroCliente = facturaseleccionada.NumeroCliente;
+                    factura.Estado = "Pagada";
+                    factura.Importe = facturaseleccionada.Importe;
 
-                listaFacturas.Add(factura);
+                    listaFacturas.Add(factura);
 
-                listaFacturasPendientesPago.RemoveAt(indiceSeleccionado);
-                lstFacturasAPagar.Items.RemoveAt(indiceSeleccionado);
-                listaFacturasPagas.Add(facturaseleccionada);
-                lvwFacturasPagadas.Items.Add("Factura: " + facturaseleccionada.IdOrden + " - $" + facturaseleccionada.Importe + " ~ Fecha: " + facturaseleccionada.Fecha);
+                    listaFacturasPendientesPago.RemoveAt(indiceSeleccionado);
+                    lstFacturasAPagar.Items.RemoveAt(indiceSeleccionado);
+                    listaFacturasPagas.Add(facturaseleccionada);
+                    lvwFacturasPagadas.Items.Add("Factura: " + facturaseleccionada.IdOrden + " - $" + facturaseleccionada.Importe + " ~ Fecha: " + facturaseleccionada.Fecha);
 
 
-                // Acceder al archivo de esta manera si el proyecto se esta ejecutando desde la carpeta bin
-                string pathFacturas = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\", "Archivos/Facturas.txt");
-                //string path = "Archivos/Facturas.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
+                    // Acceder al archivo de esta manera si el proyecto se esta ejecutando desde la carpeta bin
+                    string pathFacturas = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\", "Archivos/Facturas.txt");
+                    //string path = "Archivos/Facturas.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
 
-                // GUARDO ESTADO FACTURAS EN ARCHIVO DE TEXTO FACTURAS
-                using (StreamWriter swfactura = new StreamWriter(pathFacturas))
-                    foreach (Factura f in listaFacturas)
+                    // GUARDO ESTADO FACTURAS EN ARCHIVO DE TEXTO FACTURAS
+                    using (StreamWriter swfactura = new StreamWriter(pathFacturas))
+                        foreach (Factura f in listaFacturas)
+                        {
+                            swfactura.WriteLine(f.ToCSV());
+                        }
+
+
+                    if (listaFacturasPendientesPago.Count == 0)
                     {
-                        swfactura.WriteLine(f.ToCSV());
+                        lblSaldoEstadodeCuenta.Text = "Estado: No tiene facturas pendientes de pago.";
                     }
-
-
-                if (listaFacturasPendientesPago.Count == 0)
-                {
-                    lblSaldoEstadodeCuenta.Text = "Estado: No tiene facturas pendientes de pago.";
-                } else if (listaFacturasPendientesPago.Count >= 0)
-                {
-                    saldoTotal -= facturaseleccionada.Importe;
-                    lblSaldoEstadodeCuenta.Text = "Estado: Tiene facturas pendientes de pago por un total de: $" + saldoTotal;
+                    else if (listaFacturasPendientesPago.Count >= 0)
+                    {
+                        saldoTotal -= facturaseleccionada.Importe;
+                        lblSaldoEstadodeCuenta.Text = "Estado: Tiene facturas pendientes de pago por un total de: $" + saldoTotal;
+                    }
+                    MessageBox.Show("Se pagó la factura " + facturaseleccionada.IdOrden + " de valor $" + facturaseleccionada.Importe + " con éxito!", "Éxito!");
                 }
-
-                MessageBox.Show("Se pagó la factura " + facturaseleccionada.IdOrden +" de valor $" + facturaseleccionada.Importe + " con éxito!", "Éxito!");
             }
         }
 

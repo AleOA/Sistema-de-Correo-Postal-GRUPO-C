@@ -380,126 +380,130 @@ namespace GRUPO_C.formularios
             // Si no, cargo la solicitud
             else
             {
-                float tarifa = CalcularTarifas();
+                var confirmResult = MessageBox.Show("¿Estás seguro?", "Confirmacion", MessageBoxButtons.YesNo);
 
-                List<OrdenDeServicio> listaOrdenesdeServicioanteriores= new List<OrdenDeServicio>();
+                if (confirmResult == DialogResult.Yes)
+                {
+                    float tarifa = CalcularTarifas();
 
-                // Acceder al archivo de esta manera si el proyecto se esta ejecutando desde la carpeta bin
-                string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\", "Archivos/OrdenDeServicio.txt");
+                    List<OrdenDeServicio> listaOrdenesdeServicioanteriores = new List<OrdenDeServicio>();
 
-                //string path = "Archivos/OrdenDeServicio.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
+                    // Acceder al archivo de esta manera si el proyecto se esta ejecutando desde la carpeta bin
+                    string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\", "Archivos/OrdenDeServicio.txt");
 
-                using (StreamReader sr = new StreamReader(path))
+                    //string path = "Archivos/OrdenDeServicio.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
 
-                    while (!sr.EndOfStream)
+                    using (StreamReader sr = new StreamReader(path))
+
+                        while (!sr.EndOfStream)
+                        {
+                            string linea = sr.ReadLine();
+                            string[] vector = linea.Split(';');
+
+                            OrdenDeServicio ordendeservicio = new OrdenDeServicio();
+                            ordendeservicio.IdOrden = int.Parse(vector[0]);
+                            ordendeservicio.NumeroCliente = int.Parse(vector[1]);
+                            ordendeservicio.Fecha = DateTime.Parse(vector[2]);
+                            ordendeservicio.Prioridad = vector[3];
+                            ordendeservicio.Peso = vector[4];
+                            ordendeservicio.ProvinciaOrigen = vector[5];
+                            ordendeservicio.RegionOrigen = vector[6];
+                            ordendeservicio.LocalidadOrigen = vector[7];
+                            ordendeservicio.ModalidadOrigen = vector[8];
+                            ordendeservicio.PaisDestino = vector[9];
+                            ordendeservicio.ProvinciaDestino = vector[10];
+                            ordendeservicio.RegionDestino = vector[11];
+                            ordendeservicio.LocalidadDestino = vector[12];
+                            ordendeservicio.ModalidadDestino = vector[13];
+                            ordendeservicio.DireccionOrigen = vector[14];
+                            ordendeservicio.DireccionDestino = vector[15];
+                            ordendeservicio.Tarifa = float.Parse(vector[16]);
+                            ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
+                            ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
+
+                            listaOrdenesdeServicioanteriores.Add(ordendeservicio);
+                        }
+
+                    int numultimaorden;
+                    if (listaOrdenesdeServicioanteriores.Count == 0)
                     {
-                        string linea = sr.ReadLine();
-                        string[] vector = linea.Split(';');
+                        numultimaorden = 500000;
+                    }
+                    else
+                    {
+                        // Seleccionar la ultima orden de Servicio
+                        int numultimaordenarchivo = listaOrdenesdeServicioanteriores.Max(O => O.IdOrden);
 
-                        OrdenDeServicio ordendeservicio = new OrdenDeServicio();
-                        ordendeservicio.IdOrden = int.Parse(vector[0]);
-                        ordendeservicio.NumeroCliente = int.Parse(vector[1]);
-                        ordendeservicio.Fecha = DateTime.Parse(vector[2]);
-                        ordendeservicio.Prioridad = vector[3];
-                        ordendeservicio.Peso = vector[4];
-                        ordendeservicio.ProvinciaOrigen = vector[5];
-                        ordendeservicio.RegionOrigen = vector[6];
-                        ordendeservicio.LocalidadOrigen = vector[7];
-                        ordendeservicio.ModalidadOrigen = vector[8];
-                        ordendeservicio.PaisDestino = vector[9];
-                        ordendeservicio.ProvinciaDestino = vector[10];
-                        ordendeservicio.RegionDestino = vector[11];
-                        ordendeservicio.LocalidadDestino = vector[12];
-                        ordendeservicio.ModalidadDestino = vector[13];
-                        ordendeservicio.DireccionOrigen = vector[14];
-                        ordendeservicio.DireccionDestino = vector[15];
-                        ordendeservicio.Tarifa = float.Parse(vector[16]);
-                        ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
-                        ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
-
-                        listaOrdenesdeServicioanteriores.Add(ordendeservicio);
+                        // Nuevo numero, para la orden de servicio
+                        numultimaorden = numultimaordenarchivo + 1;
                     }
 
-                int numultimaorden;
-                if (listaOrdenesdeServicioanteriores.Count == 0)
-                {
-                   numultimaorden = 500000;
+                    // Creo objeto orden de servicio
+                    OrdenDeServicio orden = new OrdenDeServicio();
+                    orden.IdOrden = numultimaorden;
+                    orden.NumeroCliente = frmMenuPrincipal.numerocliente;
+                    orden.Fecha = DateTime.Now;
+                    orden.Prioridad = cmbPrioridad.Text;
+                    orden.Peso = cmbPeso.Text;
+                    orden.ProvinciaOrigen = cmbProvinciaOrigen.Text;
+                    orden.RegionOrigen = cmbRegionOrigen.Text;
+                    orden.LocalidadOrigen = cmbLocalidadOrigen.Text;
+                    orden.ModalidadOrigen = cmbModalidadOrigen.Text;
+                    orden.PaisDestino = cmbPaisDestino.Text;
+                    orden.RegionDestino = cmbRegionDestino.Text;
+                    orden.ModalidadDestino = cmbModalidadDestino.Text;
+
+                    if (cmbPaisDestino.Text.ToLower() == "argentina")
+                    {
+                        orden.LocalidadDestino = cmbLocalidadDestino.Text;
+                        orden.ProvinciaDestino = cmbProvinciaDestino.Text;
+                    }
+                    else
+                    {
+                        orden.LocalidadDestino = "N/A";
+                        orden.ProvinciaDestino = "N/A";
+                    }
+
+
+
+                    if (cmbModalidadOrigen.Text == "Puerta")
+                    {
+                        orden.DireccionOrigen = txtDireccionOrigen.Text + " " + txtNumeroOrigen.Text + " " + txtPisoOrigen.Text + " " + txtCodigoPostalOrigen.Text + " ";
+                    }
+                    else
+                    {
+                        orden.DireccionOrigen = "N/A";
+                    }
+
+                    if (cmbModalidadDestino.Text == "Puerta")
+                    {
+                        orden.DireccionDestino = txtDireccionDestino.Text + " " + txtNumeroDestino.Text + " " + txtPisoDestino.Text + " " + txtCodigoPostalDestino.Text + " ";
+                    }
+                    else
+                    {
+                        orden.DireccionDestino = "N/A";
+                    }
+
+
+                    orden.Tarifa = tarifa;
+                    orden.EstaFacturada = false;
+                    orden.DescripcionEstadoOrdenServicio = "Recibida";
+
+
+                    // Subir al archivo la orden de sevicio
+
+
+                    //string path = "Archivos/OrdenDeServicio.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
+
+                    using (StreamWriter sw = new StreamWriter(path, true))
+                        sw.WriteLine(orden.ToCSV());
+
+                    string mensajeExitosoSolServicio = "Se cargo la solicitud con éxito!." + "\n" +
+                    "Tarifa: $" + orden.Tarifa + "\n" +
+                    "Número de Solicitud: " + orden.IdOrden;
+
+                    MessageBox.Show(mensajeExitosoSolServicio, "Éxito");
                 }
-                else
-                {
-                  // Seleccionar la ultima orden de Servicio
-                   int numultimaordenarchivo = listaOrdenesdeServicioanteriores.Max(O => O.IdOrden);
-
-                  // Nuevo numero, para la orden de servicio
-                   numultimaorden = numultimaordenarchivo + 1;
-                }
-
-                // Creo objeto orden de servicio
-                OrdenDeServicio orden = new OrdenDeServicio();
-                orden.IdOrden = numultimaorden;
-                orden.NumeroCliente = frmMenuPrincipal.numerocliente;
-                orden.Fecha = DateTime.Now;
-                orden.Prioridad = cmbPrioridad.Text;
-                orden.Peso = cmbPeso.Text;
-                orden.ProvinciaOrigen = cmbProvinciaOrigen.Text;
-                orden.RegionOrigen = cmbRegionOrigen.Text;
-                orden.LocalidadOrigen = cmbLocalidadOrigen.Text;
-                orden.ModalidadOrigen = cmbModalidadOrigen.Text;
-                orden.PaisDestino = cmbPaisDestino.Text;
-                orden.RegionDestino = cmbRegionDestino.Text;
-                orden.ModalidadDestino = cmbModalidadDestino.Text;
-
-                if (cmbPaisDestino.Text.ToLower() == "argentina")
-                {
-                    orden.LocalidadDestino = cmbLocalidadDestino.Text;
-                    orden.ProvinciaDestino = cmbProvinciaDestino.Text;
-                }
-                else
-                {
-                    orden.LocalidadDestino = "N/A";
-                    orden.ProvinciaDestino = "N/A";
-                }
-
-
-
-                if (cmbModalidadOrigen.Text == "Puerta")
-                {
-                    orden.DireccionOrigen = txtDireccionOrigen.Text + " " + txtNumeroOrigen.Text + " " + txtPisoOrigen.Text + " " + txtCodigoPostalOrigen.Text + " ";
-                }
-                else
-                {
-                    orden.DireccionOrigen = "N/A";
-                }
-
-                if (cmbModalidadDestino.Text == "Puerta")
-                {
-                    orden.DireccionDestino = txtDireccionDestino.Text + " " + txtNumeroDestino.Text + " " + txtPisoDestino.Text + " " + txtCodigoPostalDestino.Text + " ";
-                }
-                else
-                {
-                    orden.DireccionDestino = "N/A";
-                }
-
-
-                orden.Tarifa = tarifa;
-                orden.EstaFacturada = false;
-                orden.DescripcionEstadoOrdenServicio = "Recibida";
-
-
-                // Subir al archivo la orden de sevicio
-
-
-                //string path = "Archivos/OrdenDeServicio.txt"; LA RUTA DEPENDE DE LA PC, USAR ESTE SI LA DE ARRIBA NO FUNCIONA
-
-                using (StreamWriter sw = new StreamWriter(path, true))
-                    sw.WriteLine(orden.ToCSV());
-
-                string mensajeExitosoSolServicio = "Se cargo la solicitud con éxito!." + "\n" +
-                "Tarifa: $" + orden.Tarifa + "\n" +
-                "Número de Solicitud: " + orden.IdOrden;
-
-                MessageBox.Show(mensajeExitosoSolServicio, "Éxito");
-
 
             }
         }
