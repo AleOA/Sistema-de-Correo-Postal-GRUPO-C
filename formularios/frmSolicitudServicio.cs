@@ -646,9 +646,9 @@ namespace GRUPO_C.formularios
             }
             else
             {
-                provinciaDestino = "INT";
-                localidadDestino = "INT";
-                modalidadDestino = "INT";
+                provinciaDestino = null;
+                localidadDestino = null;
+                modalidadDestino = null;
             }
 
             // Si coinciden en origen y destino region, provincia y localidad - El envio es misma Localidad
@@ -1026,27 +1026,28 @@ namespace GRUPO_C.formularios
                     tarifaACABA += tarifaLocalLocalhasta30kg;
                 }
 
-                // Servicio adicional: Recargo Urgente
-                if (prioridad == "Urgente")
-                {
-                    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifaACABA;
+                // SOLO COBRO LOS ADICIONALES SOBRE LA TARIFA INTERNACIONAL, NO LA DE CABA
+                //// Servicio adicional: Recargo Urgente
+                //if (prioridad == "Urgente")
+                //{
+                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    float recargo = calculotarifaconrecargo - tarifaACABA;
 
-                    if (recargo <= topeUrgente)
-                    {
-                        tarifaACABA = tarifaACABA * porcUrgente;
-                    }
-                    else if (recargo > topeUrgente)
-                    {
-                        tarifaACABA += topeUrgente;
-                    }
-                }
+                //    if (recargo <= topeUrgente)
+                //    {
+                //        tarifaACABA = tarifaACABA * porcUrgente;
+                //    }
+                //    else if (recargo > topeUrgente)
+                //    {
+                //        tarifaACABA += topeUrgente;
+                //    }
+                //}
 
-                // Servicio adicional: Retiro en Puerta (Origen)
-                if (modalidadOrigen == "Puerta")
-                {
-                    tarifaACABA += RetiroPuerta;
-                }
+                //// Servicio adicional: Retiro en Puerta (Origen)
+                //if (modalidadOrigen == "Puerta")
+                //{
+                //    tarifaACABA += RetiroPuerta;
+                //}
 
             }
 
@@ -1071,26 +1072,27 @@ namespace GRUPO_C.formularios
                     tarifaACABA += tarifaProvincialProvincialhasta30kg;
                 }
 
-                // Servicio adicional: Recargo Urgente
-                if (prioridad == "Urgente")
-                {
-                    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifaACABA;
+                // SOLO COBRO LOS ADICIONALES SOBRE LA TARIFA INTERNACIONAL, NO LA DE CABA
+                //// Servicio adicional: Recargo Urgente
+                //if (prioridad == "Urgente")
+                //{
+                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    float recargo = calculotarifaconrecargo - tarifaACABA;
 
-                    if (recargo <= topeUrgente)
-                    {
-                        tarifaACABA = tarifaACABA * porcUrgente;
-                    }
-                    else if (recargo > topeUrgente)
-                    {
-                        tarifaACABA += topeUrgente;
-                    }
-                }
-                // Servicio adicional: Retiro en Puerta (Origen)
-                if (modalidadOrigen == "Puerta")
-                {
-                    tarifaACABA += RetiroPuerta;
-                }
+                //    if (recargo <= topeUrgente)
+                //    {
+                //        tarifaACABA = tarifaACABA * porcUrgente;
+                //    }
+                //    else if (recargo > topeUrgente)
+                //    {
+                //        tarifaACABA += topeUrgente;
+                //    }
+                //}
+                //// Servicio adicional: Retiro en Puerta (Origen)
+                //if (modalidadOrigen == "Puerta")
+                //{
+                //    tarifaACABA += RetiroPuerta;
+                //}
             }
 
 
@@ -1114,26 +1116,27 @@ namespace GRUPO_C.formularios
                     tarifaACABA += tarifaRegionalRegionalhasta30kg;
                 }
 
-                // Servicio adicional: Recargo Urgente
-                if (prioridad == "Urgente")
-                {
-                    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifaACABA;
+                //// SOLO COBRO LOS ADICIONALES SOBRE LA TARIFA INTERNACIONAL, NO LA DE CABA
+                //// Servicio adicional: Recargo Urgente
+                //if (prioridad == "Urgente")
+                //{
+                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    float recargo = calculotarifaconrecargo - tarifaACABA;
 
-                    if (recargo <= topeUrgente)
-                    {
-                        tarifaACABA = tarifaACABA * porcUrgente;
-                    }
-                    else if (recargo > topeUrgente)
-                    {
-                        tarifaACABA += topeUrgente;
-                    }
-                }
-                // Servicio adicional: Retiro en Puerta (Origen)
-                if (modalidadOrigen == "Puerta")
-                {
-                    tarifaACABA += RetiroPuerta;
-                }
+                //    if (recargo <= topeUrgente)
+                //    {
+                //        tarifaACABA = tarifaACABA * porcUrgente;
+                //    }
+                //    else if (recargo > topeUrgente)
+                //    {
+                //        tarifaACABA += topeUrgente;
+                //    }
+                //}
+                //// Servicio adicional: Retiro en Puerta (Origen)
+                //if (modalidadOrigen == "Puerta")
+                //{
+                //    tarifaACABA += RetiroPuerta;
+                //}
             }
 
             // Si no coinciden en origen y destino region pero el Pais es Argentina el envio es Nacional
@@ -1156,26 +1159,27 @@ namespace GRUPO_C.formularios
                     tarifaACABA += tarifaNacionalNacionalhasta30kg;
                 }
 
-                // Servicio adicional: Recargo Urgente
-                if (prioridad == "Urgente")
-                {
-                    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifaACABA;
+                //// SOLO COBRO LOS ADICIONALES SOBRE LA TARIFA INTERNACIONAL, NO LA DE CABA
+                //// Servicio adicional: Recargo Urgente
+                //if (prioridad == "Urgente")
+                //{
+                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    float recargo = calculotarifaconrecargo - tarifaACABA;
 
-                    if (recargo <= topeUrgente)
-                    {
-                        tarifaACABA = tarifaACABA * porcUrgente;
-                    }
-                    else if (recargo > topeUrgente)
-                    {
-                        tarifaACABA += topeUrgente;
-                    }
-                }
-                // Servicio adicional: Retiro en Puerta (Origen)
-                if (modalidadOrigen == "Puerta")
-                {
-                    tarifaACABA += RetiroPuerta;
-                }
+                //    if (recargo <= topeUrgente)
+                //    {
+                //        tarifaACABA = tarifaACABA * porcUrgente;
+                //    }
+                //    else if (recargo > topeUrgente)
+                //    {
+                //        tarifaACABA += topeUrgente;
+                //    }
+                //}
+                //// Servicio adicional: Retiro en Puerta (Origen)
+                //if (modalidadOrigen == "Puerta")
+                //{
+                //    tarifaACABA += RetiroPuerta;
+                //}
             }
             return tarifaACABA;
         }
