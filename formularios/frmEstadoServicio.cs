@@ -91,7 +91,7 @@ namespace GRUPO_C.formularios
                     string mensaje = orden.ToString();
 
 
-                    MessageBox.Show(mensaje, numeroIngresado);
+                    MessageBox.Show(mensaje, "Orden de servicio Nro " + numeroIngresado);
                 }
             }
         }

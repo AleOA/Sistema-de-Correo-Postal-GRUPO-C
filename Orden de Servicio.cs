@@ -38,7 +38,26 @@ namespace GRUPO_C.formularios
 
         public override string ToString()
         {
-            return string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n{11}\n{12}\n{13}\n{14}\n{15}\n{16}\n{17}\n{18}",
+            return string.Format("ID de orden: {0}" +
+                "\nEstado de la orden: {18}" +
+                "\n\nNumero de cliente: {1}" +
+                "\nFecha: {2}" +
+                "\nPrioridad: {3}" +
+                "\nPeso: {4} Kg." +
+                "\n\n--Datos de origen--" +
+                "\nPrivincia: {5}" +
+                "\nRegion: {6}" +
+                "\nLocalidad: {7}" +
+                "\nModalidad: {8}" +
+                "\nDireccion origen: {14}" +
+                "\n\n--Datos de destino--" +
+                "\nPais: {9}" +
+                "\nPrivincia: {10}" +
+                "\nRegion: {11}" +
+                "\nLocalidad: {12}" +
+                "\nModalidad: {13}" +
+                "\nDierccion destino: {15}" +
+                "\n\nTarifa: ${16}",
                 IdOrden, NumeroCliente, Fecha, Prioridad, Peso, ProvinciaOrigen, RegionOrigen, LocalidadOrigen, ModalidadOrigen,
                PaisDestino, ProvinciaDestino, RegionDestino, LocalidadDestino, ModalidadDestino, DireccionOrigen, DireccionDestino,
               Tarifa, EstaFacturada, DescripcionEstadoOrdenServicio);

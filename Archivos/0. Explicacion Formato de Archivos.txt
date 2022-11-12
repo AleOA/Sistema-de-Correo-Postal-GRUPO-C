@@ -26,7 +26,7 @@ Adicional;%Urgente;Precio TopeUrgente;Precio Retiro en Puerta;Precio Entrega en 
 IdOrden;NumeroCliente;Fecha;TipoProducto;Prioridad;Peso;ProvinciaOrigen;RegionOrigen;LocalidadOrigen;ModalidadOrigen;PaisDestino;ProvinciaDestino;RegionDestino;LocalidadDestino;Modalidad Destino;DireccionOrigen;DireccionDestino;Tarifa;EstaFacturada;DescripcionEstadoOrdenServicio
 
 -Facturas
-IDFactura;IDOrden;NumeroCliente;Estado;Importe)
+IDOrden;Fecha;NumeroCliente;Estado;Importe
 
 
 CAMBIAR Tarifa float a decimal.
