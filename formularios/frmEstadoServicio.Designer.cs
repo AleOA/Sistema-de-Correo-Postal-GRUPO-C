@@ -70,7 +70,6 @@
             this.Controls.Add(this.lblIngreseNumeroSol);
             this.Name = "frmEstadoServicio";
             this.Text = "Estado del Servicio";
-            this.Load += new System.EventHandler(this.frmEstadoServicio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

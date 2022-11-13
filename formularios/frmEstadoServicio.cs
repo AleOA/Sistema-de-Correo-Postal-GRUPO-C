@@ -12,10 +12,6 @@ namespace GRUPO_C.formularios
 {
     public partial class frmEstadoServicio : Form
     {
-        List<int> listaSolicitudes = new List<int>(); // BORRAR
-        List<string> listaEstados = new List<string>(); // BORRAR
-
-
         List<OrdenDeServicio> listaOrdenesdeServicioanteriores = new List<OrdenDeServicio>();
         List<int> numerosordenesusuario = new List<int>();
 
@@ -94,25 +90,6 @@ namespace GRUPO_C.formularios
                     MessageBox.Show(mensaje, "Orden de servicio Nro " + numeroIngresado);
                 }
             }
-        }
-
-        private void frmEstadoServicio_Load(object sender, EventArgs e)
-        {
-            CargarSolicitudes();
-        }
-
-        private void CargarSolicitudes()
-        {
-            // fuera del prototipo cargaria el archivo de solicitudes correspondientes al usuario y lo guardaria en una lista de objetos
-            // Cargo Nrosolicitud y Estado de prueba para el prototipo
-
-            listaSolicitudes.Add(1);
-            listaSolicitudes.Add(2);
-            listaSolicitudes.Add(3);
-
-            listaEstados.Add("Recibida");
-            listaEstados.Add("En Transito");
-            listaEstados.Add("Cerrada");
         }
     }
 }
