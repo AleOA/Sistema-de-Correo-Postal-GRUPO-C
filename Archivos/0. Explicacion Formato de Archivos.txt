@@ -29,7 +29,8 @@ IdOrden;NumeroCliente;Fecha;TipoProducto;Prioridad;Peso;ProvinciaOrigen;RegionOr
 IDOrden;Fecha;NumeroCliente;Estado;Importe
 
 
-CAMBIAR Tarifa float a decimal.
+Adicional que se podria hacer:
+Cambiar Tarifa float a decimal.
 Orden de servicio: vaciar todos los controles al cargarla.
 
 
