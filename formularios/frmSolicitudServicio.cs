@@ -427,7 +427,7 @@ namespace GRUPO_C.formularios
                     int numultimaorden;
                     if (listaOrdenesdeServicioanteriores.Count == 0)
                     {
-                        numultimaorden = 500000;
+                        numultimaorden = 500000; // Si no hay ordenes de servicio en el archivo, se establece un numero por default
                     }
                     else
                     {
