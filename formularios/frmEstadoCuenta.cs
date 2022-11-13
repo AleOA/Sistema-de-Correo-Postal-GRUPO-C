@@ -24,18 +24,12 @@ namespace GRUPO_C.formularios
         //TODAS LAS FACTURAS
         List<Factura> listaFacturas = new List<Factura>();
 
-        float saldoTotal = 0;
+        decimal saldoTotal = 0.00m;
 
         public frmEstadoCuenta()
         {
             InitializeComponent();
         }
-
-        // CLAVE:VALOR -> Num de envio - Tarifa PARA EL PROTOTIPO
-        //Dictionary<int, float> FacturasPagadas = new Dictionary<int, float>(); // CLAVE:VALOR -> Num de envio - Tarifa PARA EL PROTOTIPO
-        //Dictionary<int, float> FacturasPendientesPago = new Dictionary<int, float>();
-        //Dictionary<int, float> EnviosPendientesFacturar = new Dictionary<int, float>();
-        //float saldoTotal;
         private void frmEstadoCuenta_Load(object sender, EventArgs e)
         {
             CargarEstadoCuenta();
@@ -75,7 +69,7 @@ namespace GRUPO_C.formularios
                     ordendeservicio.ModalidadDestino = vector[13];
                     ordendeservicio.DireccionOrigen = vector[14];
                     ordendeservicio.DireccionDestino = vector[15];
-                    ordendeservicio.Tarifa = float.Parse(vector[16]);
+                    ordendeservicio.Tarifa = decimal.Parse(vector[16]);
                     ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
                     ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
                     listaOrdenesdeServicio.Add(ordendeservicio);
@@ -150,7 +144,7 @@ namespace GRUPO_C.formularios
                         ordendeservicio.ModalidadDestino = vector[13];
                         ordendeservicio.DireccionOrigen = vector[14];
                         ordendeservicio.DireccionDestino = vector[15];
-                        ordendeservicio.Tarifa = float.Parse(vector[16]);
+                        ordendeservicio.Tarifa = decimal.Parse(vector[16]);
                         ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
                         ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
                         listaOrdenesdeServicio.Add(ordendeservicio);
@@ -170,7 +164,7 @@ namespace GRUPO_C.formularios
                     f.Fecha = DateTime.Parse(vector[1]);
                     f.NumeroCliente = int.Parse(vector[2]);
                     f.Estado = vector[3];
-                    f.Importe = float.Parse(vector[4]);
+                    f.Importe = decimal.Parse(vector[4]);
 
                     listaFacturas.Add(f);
 
@@ -223,7 +217,7 @@ namespace GRUPO_C.formularios
             }
         }
 
-        private float CalcularSaldo(float saldoTotal)
+        private decimal CalcularSaldo(decimal saldoTotal)
         {
             foreach(Factura f in listaFacturasPendientesPago)
             {

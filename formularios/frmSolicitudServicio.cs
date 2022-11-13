@@ -20,41 +20,41 @@ namespace GRUPO_C.formularios
         // Lista de objetos de Lugares. Atributos de cada objeto de la lista: Pais-Region-Provincia-Localidad
         List<Lugar> listalugares = new List<Lugar>();
 
-        float tarifatotal;
+        decimal tarifatotal;
 
         // TODAS LAS TARIFAS VA A CONSULTARLAS EN EL ARCHIVO
         // Tarifas misma Localidad
-        float tarifaLocalLocalhasta500gr,tarifaLocalLocalhasta10kg,tarifaLocalLocalhasta20kg,tarifaLocalLocalhasta30kg;
+        decimal tarifaLocalLocalhasta500gr,tarifaLocalLocalhasta10kg,tarifaLocalLocalhasta20kg,tarifaLocalLocalhasta30kg;
 
         // Tarifas misma Provincia
-        float tarifaProvincialProvincialhasta500gr,tarifaProvincialProvincialhasta10kg,tarifaProvincialProvincialhasta20kg,tarifaProvincialProvincialhasta30kg;
+        decimal tarifaProvincialProvincialhasta500gr,tarifaProvincialProvincialhasta10kg,tarifaProvincialProvincialhasta20kg,tarifaProvincialProvincialhasta30kg;
 
         // Tarifas misma Region
-        float tarifaRegionalRegionalhasta500gr,tarifaRegionalRegionalhasta10kg,tarifaRegionalRegionalhasta20kg,tarifaRegionalRegionalhasta30kg;
+        decimal tarifaRegionalRegionalhasta500gr,tarifaRegionalRegionalhasta10kg,tarifaRegionalRegionalhasta20kg,tarifaRegionalRegionalhasta30kg;
 
         // Tarifas Nacional
-        float tarifaNacionalNacional500gr,tarifaNacionalNacionalhasta10kg,tarifaNacionalNacionalhasta20kg,tarifaNacionalNacionalhasta30kg;
+        decimal tarifaNacionalNacional500gr,tarifaNacionalNacionalhasta10kg,tarifaNacionalNacionalhasta20kg,tarifaNacionalNacionalhasta30kg;
 
 
         // TARIFAS INTERNACIONALES
 
         // Pais Limitrofe
-        float tarifaPaisLimitrofe500gr,tarifaPaisLimitrofe10kg,tarifaPaisLimitrofe20kg,tarifaPaisLimitrofe30kg;
+        decimal tarifaPaisLimitrofe500gr,tarifaPaisLimitrofe10kg,tarifaPaisLimitrofe20kg,tarifaPaisLimitrofe30kg;
 
         // America Latina
-        float tarifaAmericaLatina500gr,tarifaAmericaLatina10kg,tarifaAmericaLatina20kg,tarifaAmericaLatina30kg;
+        decimal tarifaAmericaLatina500gr,tarifaAmericaLatina10kg,tarifaAmericaLatina20kg,tarifaAmericaLatina30kg;
 
         // America del Norte
-        float tarifaAmericaNorte500gr,tarifaAmericaNorte10kg,tarifaAmericaNorte20kg,tarifaAmericaNorte30kg;
+        decimal tarifaAmericaNorte500gr,tarifaAmericaNorte10kg,tarifaAmericaNorte20kg,tarifaAmericaNorte30kg;
 
         // Europa
-        float tarifaEuropa500gr,tarifaEuropa10kg,tarifaEuropa20kg,tarifaEuropa30kg;
+        decimal tarifaEuropa500gr,tarifaEuropa10kg,tarifaEuropa20kg,tarifaEuropa30kg;
 
         // Asia
-        float tarifaAsia500gr,tarifaAsia10kg,tarifaAsia20kg,tarifaAsia30kg;
+        decimal tarifaAsia500gr,tarifaAsia10kg,tarifaAsia20kg,tarifaAsia30kg;
 
         // TARIFAS ADICIONALES
-        float porcUrgente,topeUrgente,RetiroPuerta,EntregaPuerta;
+        decimal porcUrgente,topeUrgente,RetiroPuerta,EntregaPuerta;
 
         public frmSolicitudServicio()
         {
@@ -135,92 +135,92 @@ namespace GRUPO_C.formularios
                 // Tarifas envio Local
                 if (i== 1)
                 {
-                    tarifaLocalLocalhasta500gr = float.Parse(vector[1]);
-                    tarifaLocalLocalhasta10kg = float.Parse(vector[2]);
-                    tarifaLocalLocalhasta20kg = float.Parse(vector[3]);
-                    tarifaLocalLocalhasta30kg = float.Parse(vector[4]);
+                    tarifaLocalLocalhasta500gr = decimal.Parse(vector[1]);
+                    tarifaLocalLocalhasta10kg = decimal.Parse(vector[2]);
+                    tarifaLocalLocalhasta20kg = decimal.Parse(vector[3]);
+                    tarifaLocalLocalhasta30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas envio Provincial
                 if (i== 2)
                 {
-                    tarifaProvincialProvincialhasta500gr = float.Parse(vector[1]);
-                    tarifaProvincialProvincialhasta10kg = float.Parse(vector[2]);
-                    tarifaProvincialProvincialhasta20kg = float.Parse(vector[3]);
-                    tarifaProvincialProvincialhasta30kg = float.Parse(vector[4]);
+                    tarifaProvincialProvincialhasta500gr = decimal.Parse(vector[1]);
+                    tarifaProvincialProvincialhasta10kg = decimal.Parse(vector[2]);
+                    tarifaProvincialProvincialhasta20kg = decimal.Parse(vector[3]);
+                    tarifaProvincialProvincialhasta30kg = decimal.Parse(vector[4]);
                 }
 
 
                 // Tarifas envio Regional
                 if (i == 3)
                 {
-                    tarifaRegionalRegionalhasta500gr = float.Parse(vector[1]);
-                    tarifaRegionalRegionalhasta10kg = float.Parse(vector[2]);
-                    tarifaRegionalRegionalhasta20kg = float.Parse(vector[3]);
-                    tarifaRegionalRegionalhasta30kg = float.Parse(vector[4]);
+                    tarifaRegionalRegionalhasta500gr = decimal.Parse(vector[1]);
+                    tarifaRegionalRegionalhasta10kg = decimal.Parse(vector[2]);
+                    tarifaRegionalRegionalhasta20kg = decimal.Parse(vector[3]);
+                    tarifaRegionalRegionalhasta30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas envio Nacional
                 if (i == 4)
                 {
-                    tarifaNacionalNacional500gr = float.Parse(vector[1]);
-                    tarifaNacionalNacionalhasta10kg = float.Parse(vector[2]);
-                    tarifaNacionalNacionalhasta20kg = float.Parse(vector[3]);
-                    tarifaNacionalNacionalhasta30kg = float.Parse(vector[4]);
+                    tarifaNacionalNacional500gr = decimal.Parse(vector[1]);
+                    tarifaNacionalNacionalhasta10kg = decimal.Parse(vector[2]);
+                    tarifaNacionalNacionalhasta20kg = decimal.Parse(vector[3]);
+                    tarifaNacionalNacionalhasta30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas Pais Limitrofe
                 if (i == 5)
                 {
-                    tarifaPaisLimitrofe500gr = float.Parse(vector[1]);
-                    tarifaPaisLimitrofe10kg = float.Parse(vector[2]);
-                    tarifaPaisLimitrofe20kg = float.Parse(vector[3]);
-                    tarifaPaisLimitrofe30kg = float.Parse(vector[4]);
+                    tarifaPaisLimitrofe500gr = decimal.Parse(vector[1]);
+                    tarifaPaisLimitrofe10kg = decimal.Parse(vector[2]);
+                    tarifaPaisLimitrofe20kg = decimal.Parse(vector[3]);
+                    tarifaPaisLimitrofe30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas America Latina
                 if (i == 6)
                 {
-                    tarifaAmericaLatina500gr = float.Parse(vector[1]);
-                    tarifaAmericaLatina10kg = float.Parse(vector[2]);
-                    tarifaAmericaLatina20kg = float.Parse(vector[3]);
-                    tarifaAmericaLatina30kg = float.Parse(vector[4]);
+                    tarifaAmericaLatina500gr = decimal.Parse(vector[1]);
+                    tarifaAmericaLatina10kg = decimal.Parse(vector[2]);
+                    tarifaAmericaLatina20kg = decimal.Parse(vector[3]);
+                    tarifaAmericaLatina30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas America del Norte
                 if (i == 7)
                 {
-                    tarifaAmericaNorte500gr = float.Parse(vector[1]);
-                    tarifaAmericaNorte10kg = float.Parse(vector[2]);
-                    tarifaAmericaNorte20kg = float.Parse(vector[3]);
-                    tarifaAmericaNorte30kg = float.Parse(vector[4]);
+                    tarifaAmericaNorte500gr = decimal.Parse(vector[1]);
+                    tarifaAmericaNorte10kg = decimal.Parse(vector[2]);
+                    tarifaAmericaNorte20kg = decimal.Parse(vector[3]);
+                    tarifaAmericaNorte30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas Europa
                 if (i == 8)
                 {
-                    tarifaEuropa500gr = float.Parse(vector[1]);
-                    tarifaEuropa10kg = float.Parse(vector[2]);
-                    tarifaEuropa20kg = float.Parse(vector[3]);
-                    tarifaEuropa30kg = float.Parse(vector[4]);
+                    tarifaEuropa500gr = decimal.Parse(vector[1]);
+                    tarifaEuropa10kg = decimal.Parse(vector[2]);
+                    tarifaEuropa20kg = decimal.Parse(vector[3]);
+                    tarifaEuropa30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas Asia
                 if (i == 9)
                 {
-                    tarifaAsia500gr = float.Parse(vector[1]);
-                    tarifaAsia10kg = float.Parse(vector[2]);
-                    tarifaAsia20kg = float.Parse(vector[3]);
-                    tarifaAsia30kg = float.Parse(vector[4]);
+                    tarifaAsia500gr = decimal.Parse(vector[1]);
+                    tarifaAsia10kg = decimal.Parse(vector[2]);
+                    tarifaAsia20kg = decimal.Parse(vector[3]);
+                    tarifaAsia30kg = decimal.Parse(vector[4]);
                 }
 
                 // Tarifas Adicional
                 if (i == 10)
                 {
-                    porcUrgente = (float.Parse(vector[1]) / 100) + 1; // asi si por ejemplo es 50%, la variable vale 1.5 para calcular la tarifa mas facil
-                    topeUrgente = float.Parse(vector[2]);
-                    RetiroPuerta = float.Parse(vector[3]);
-                    EntregaPuerta = float.Parse(vector[4]);
+                    porcUrgente = (decimal.Parse(vector[1]) / 100) + 1; // asi si por ejemplo es 50%, la variable vale 1.5 para calcular la tarifa mas facil
+                    topeUrgente = decimal.Parse(vector[2]);
+                    RetiroPuerta = decimal.Parse(vector[3]);
+                    EntregaPuerta = decimal.Parse(vector[4]);
                 }
 
             }
@@ -384,7 +384,7 @@ namespace GRUPO_C.formularios
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    float tarifa = CalcularTarifas();
+                    decimal tarifa = CalcularTarifas();
 
                     List<OrdenDeServicio> listaOrdenesdeServicioanteriores = new List<OrdenDeServicio>();
 
@@ -417,7 +417,7 @@ namespace GRUPO_C.formularios
                             ordendeservicio.ModalidadDestino = vector[13];
                             ordendeservicio.DireccionOrigen = vector[14];
                             ordendeservicio.DireccionDestino = vector[15];
-                            ordendeservicio.Tarifa = float.Parse(vector[16]);
+                            ordendeservicio.Tarifa = decimal.Parse(vector[16]);
                             ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
                             ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
 
@@ -734,9 +734,9 @@ namespace GRUPO_C.formularios
 
         // CALCULAR TARIFAS
 
-        private float CalcularTarifas()
+        private decimal CalcularTarifas()
         {
-            tarifatotal = 0.00f;
+            tarifatotal = 0.00m;
             // Datos Ingresados Origen
             string regionOrigen = cmbRegionOrigen.Text;
             string provinciaOrigen = cmbProvinciaOrigen.Text;
@@ -790,8 +790,8 @@ namespace GRUPO_C.formularios
                 // Servicio adicional: Recargo Urgente
                 if(prioridad == "Urgente")
                 {
-                    float calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifatotal;
+                    decimal calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                    decimal recargo = calculotarifaconrecargo - tarifatotal;
 
                     if (recargo <= topeUrgente)
                     {
@@ -839,8 +839,8 @@ namespace GRUPO_C.formularios
                 // Servicio adicional: Recargo Urgente
                 if (prioridad == "Urgente")
                 {
-                    float calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifatotal;
+                    decimal calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                    decimal recargo = calculotarifaconrecargo - tarifatotal;
 
                     if (recargo <= topeUrgente)
                     {
@@ -888,8 +888,8 @@ namespace GRUPO_C.formularios
                 // Servicio adicional: Recargo Urgente
                 if (prioridad == "Urgente")
                 {
-                    float calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifatotal;
+                    decimal calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                    decimal recargo = calculotarifaconrecargo - tarifatotal;
 
                     if (recargo <= topeUrgente)
                     {
@@ -936,8 +936,8 @@ namespace GRUPO_C.formularios
                 // Servicio adicional: Recargo Urgente
                 if (prioridad == "Urgente")
                 {
-                    float calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifatotal;
+                    decimal calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                    decimal recargo = calculotarifaconrecargo - tarifatotal;
 
                     if (recargo <= topeUrgente)
                     {
@@ -1081,8 +1081,8 @@ namespace GRUPO_C.formularios
                 // Recargo Urgente Internacional sobre la tarifa de region internacional
                 if (prioridad == "Urgente")
                 {
-                    float calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                    float recargo = calculotarifaconrecargo - tarifatotal;
+                    decimal calculotarifaconrecargo = tarifatotal * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                    decimal recargo = calculotarifaconrecargo - tarifatotal;
 
                     if (recargo <= topeUrgente)
                     {
@@ -1103,9 +1103,9 @@ namespace GRUPO_C.formularios
             return tarifatotal;
         }
 
-        private float CalcularTarifaACABAParaInternacionales()
+        private decimal CalcularTarifaACABAParaInternacionales()
         {
-            float tarifaACABA = 0.00f;
+            decimal tarifaACABA = 0.00m;
             // Datos Ingresados Origen
             string regionOrigen = cmbRegionOrigen.Text;
             string provinciaOrigen = cmbProvinciaOrigen.Text;
@@ -1146,8 +1146,8 @@ namespace GRUPO_C.formularios
                 //// Servicio adicional: Recargo Urgente
                 //if (prioridad == "Urgente")
                 //{
-                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                //    float recargo = calculotarifaconrecargo - tarifaACABA;
+                //    decimal calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    decimal recargo = calculotarifaconrecargo - tarifaACABA;
 
                 //    if (recargo <= topeUrgente)
                 //    {
@@ -1192,8 +1192,8 @@ namespace GRUPO_C.formularios
                 //// Servicio adicional: Recargo Urgente
                 //if (prioridad == "Urgente")
                 //{
-                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                //    float recargo = calculotarifaconrecargo - tarifaACABA;
+                //    decimal calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    decimal recargo = calculotarifaconrecargo - tarifaACABA;
 
                 //    if (recargo <= topeUrgente)
                 //    {
@@ -1236,8 +1236,8 @@ namespace GRUPO_C.formularios
                 //// Servicio adicional: Recargo Urgente
                 //if (prioridad == "Urgente")
                 //{
-                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                //    float recargo = calculotarifaconrecargo - tarifaACABA;
+                //    decimal calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    decimal recargo = calculotarifaconrecargo - tarifaACABA;
 
                 //    if (recargo <= topeUrgente)
                 //    {
@@ -1279,8 +1279,8 @@ namespace GRUPO_C.formularios
                 //// Servicio adicional: Recargo Urgente
                 //if (prioridad == "Urgente")
                 //{
-                //    float calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
-                //    float recargo = calculotarifaconrecargo - tarifaACABA;
+                //    decimal calculotarifaconrecargo = tarifaACABA * porcUrgente; // para luego validar que el recargo sea <= al tope establecido en archivo
+                //    decimal recargo = calculotarifaconrecargo - tarifaACABA;
 
                 //    if (recargo <= topeUrgente)
                 //    {

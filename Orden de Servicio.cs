@@ -26,7 +26,7 @@ namespace GRUPO_C.formularios
         public string ModalidadDestino { get; set; }
         public string DireccionOrigen { get; set; }
         public string DireccionDestino { get; set; }
-        public float Tarifa { get; set; }
+        public decimal Tarifa { get; set; }
         public bool EstaFacturada { get; set; }
         public string DescripcionEstadoOrdenServicio { get; set; }
 

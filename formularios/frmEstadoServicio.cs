@@ -60,7 +60,7 @@ namespace GRUPO_C.formularios
                             ordendeservicio.ModalidadDestino = vector[13];
                             ordendeservicio.DireccionOrigen = vector[14];
                             ordendeservicio.DireccionDestino = vector[15];
-                            ordendeservicio.Tarifa = float.Parse(vector[16]);
+                            ordendeservicio.Tarifa = decimal.Parse(vector[16]);
                             ordendeservicio.EstaFacturada = bool.Parse(vector[17]);
                             ordendeservicio.DescripcionEstadoOrdenServicio = vector[18];
                             listaOrdenesdeServicioanteriores.Add(ordendeservicio);

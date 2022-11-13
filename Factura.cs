@@ -12,7 +12,7 @@ namespace GRUPO_C.formularios
         public DateTime Fecha { get; set; }
         public int NumeroCliente { get; set; }
         public string Estado { get; set; }
-        public float Importe { get; set; }
+        public decimal Importe { get; set; }
 
         public string ToCSV()
         {
