@@ -19,5 +19,6 @@ namespace GRUPO_C.formularios
             return string.Format("{0};{1};{2};{3};{4}", IdOrden, Fecha, NumeroCliente, Estado, Importe);
         }
 
+
     }
 }
