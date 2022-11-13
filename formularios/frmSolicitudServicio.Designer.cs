@@ -538,9 +538,9 @@
             // 
             this.lblDetalleTarifas.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDetalleTarifas.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblDetalleTarifas.Location = new System.Drawing.Point(677, 372);
+            this.lblDetalleTarifas.Location = new System.Drawing.Point(608, 372);
             this.lblDetalleTarifas.Name = "lblDetalleTarifas";
-            this.lblDetalleTarifas.Size = new System.Drawing.Size(203, 47);
+            this.lblDetalleTarifas.Size = new System.Drawing.Size(272, 47);
             this.lblDetalleTarifas.TabIndex = 57;
             this.lblDetalleTarifas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -548,7 +548,7 @@
             // 
             this.lblTarifaTiempoReal.AutoSize = true;
             this.lblTarifaTiempoReal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTarifaTiempoReal.Location = new System.Drawing.Point(766, 341);
+            this.lblTarifaTiempoReal.Location = new System.Drawing.Point(712, 341);
             this.lblTarifaTiempoReal.Name = "lblTarifaTiempoReal";
             this.lblTarifaTiempoReal.Size = new System.Drawing.Size(49, 20);
             this.lblTarifaTiempoReal.TabIndex = 58;
