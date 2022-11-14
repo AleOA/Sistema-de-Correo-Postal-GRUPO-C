@@ -1310,7 +1310,7 @@ namespace GRUPO_C.formularios
                     cmbModalidadDestino.SelectedIndex != -1)
                 {
                     lblTarifaTiempoReal.Visible = true;
-                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(Math.Round(CalcularTarifas(), 2)); // Muestra tarifa con solo dos numeros despues de la coma
                 }
             }
 
@@ -1321,7 +1321,7 @@ namespace GRUPO_C.formularios
                     cmbRegionDestino.SelectedIndex != -1)
                 {
                     lblTarifaTiempoReal.Visible = true;
-                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(Math.Round(CalcularTarifas(), 2)); // Muestra tarifa con solo dos numeros despues de la coma
                 }
             }
         }
@@ -1336,7 +1336,7 @@ namespace GRUPO_C.formularios
                     cmbModalidadDestino.SelectedIndex != -1)
                 {
                     lblTarifaTiempoReal.Visible = true;
-                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(Math.Round(CalcularTarifas(), 2)); // Muestra tarifa con solo dos numeros despues de la coma
                 }
                 else
                 {
@@ -1352,7 +1352,7 @@ namespace GRUPO_C.formularios
                     cmbRegionDestino.SelectedIndex != -1)
                 {
                     lblTarifaTiempoReal.Visible = true;
-                    lblDetalleTarifas.Text = "$" + Convert.ToString(CalcularTarifas());
+                    lblDetalleTarifas.Text = "$" + Convert.ToString(Math.Round(CalcularTarifas(), 2)); // Muestra tarifa con solo dos numeros despues de la coma
                 }
                 else
                 {
