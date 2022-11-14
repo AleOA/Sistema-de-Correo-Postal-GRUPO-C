@@ -6,7 +6,6 @@ Argentina;Metropolitana;Buenos Aires;Lomas de Zamora
 Argentina;Metropolitana;Buenos Aires;Mar del Plata
 Argentina;Metropolitana;Buenos Aires;Quilmes
 Argentina;Metropolitana;Buenos Aires;Almirante Brown
-Argentina;Metropolitana;Buenos Aires;Merlo
 Argentina;Metropolitana;Buenos Aires;Lanús
 Argentina;Metropolitana;Buenos Aires;Moreno
 Argentina;Metropolitana;Buenos Aires;Florencio Varela
@@ -15,7 +14,6 @@ Argentina;Metropolitana;Buenos Aires;Tigre
 Argentina;Metropolitana;Buenos Aires;Avellaneda
 Argentina;Metropolitana;Buenos Aires;Tres de Febrero
 Argentina;Metropolitana;Buenos Aires;Berazategui
-Argentina;Metropolitana;Buenos Aires;San Pedro
 Argentina;Metropolitana;Buenos Aires;Azul
 Argentina;Metropolitana;Buenos Aires;Marcos Paz
 Argentina;Metropolitana;Buenos Aires;Chascomús
@@ -50,12 +48,20 @@ Argentina;Centro;Córdoba;Río Tercero
 Argentina;Centro;Córdoba;Bell Ville
 Argentina;Centro;Córdoba;La Calera
 Argentina;Centro;Córdoba;Jesús María
+Argentina;Centro;San Luis;Villa Mercedes
+Argentina;Centro;San Luis;Merlo
+Argentina;Centro;San Juan;Chimbas
+Argentina;Centro;San Juan;Rivadavia
 Argentina;Norte;Chaco;Resistencia
 Argentina;Norte;Chaco;Presidencia Roque Sáenz Peña
 Argentina;Norte;Chaco;Barranqueras
 Argentina;Norte;Chaco;Villa Ángela
 Argentina;Norte;Chaco;Fontana
 Argentina;Norte;Chaco;General José de San Martín
+Argentina;Norte;Formosa;Clorinda
+Argentina;Norte;Formosa;El Colorado
+Argentina;Norte;Jujuy;San Salvador de Jujuy
+Argentina;Norte;Jujuy;San Pedro
 España;Europa;null;null
 Portugal;Europa;null;null
 Estados Unidos;America del Norte;null;null
