@@ -18,3 +18,4 @@
 500017;999999;12/11/2022 5:11:05 pm;Urgente;0.5-10;Córdoba;Centro;La Calera;Sucursal;Argentina;Córdoba;Centro;Río Cuarto;Sucursal;N/A;N/A;8250;False;Recibida
 500018;999999;12/11/2022 10:36:40 pm;Urgente;10-20;Córdoba;Centro;La Calera;Sucursal;Argentina;Córdoba;Centro;Jesús María;Sucursal;N/A;N/A;9900;False;Recibida
 500019;999999;13/11/2022 4:45:24 pm;Urgente;0.5-10;CABA;Metropolitana;CABA;Sucursal;Argentina;CABA;Metropolitana;CABA;Sucursal;N/A;N/A;5250.000;False;Recibida
+500020;999999;13/11/2022 5:09:46 pm;No Urgente;20-30;Río Negro;Sur;General Roca;Puerta;Argentina;Chaco;Norte;Fontana;Puerta;callao 54456  11356 ;av francia 443  1124 ;19250.00;False;Recibida

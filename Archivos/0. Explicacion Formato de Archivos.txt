@@ -1,10 +1,6 @@
 Formato de los archivos:
 
-- ClienteCorporativo:
-
-// Acordarse borrar usuario test, lo hice para logearnos mas rapido al probar
-CUIT:1 Contraseña: 1.
-
+- ClienteCorporativo: (El login es CUIT, Contraseña)
 NumeroCliente;RazonSocial;CUIT;Direccion;Contraseña
 
 - Lugares
@@ -27,10 +23,5 @@ IdOrden;NumeroCliente;Fecha;TipoProducto;Prioridad;Peso;ProvinciaOrigen;RegionOr
 
 -Facturas
 IDOrden;Fecha;NumeroCliente;Estado;Importe
-
-
-Adicional que se podria hacer:
-Cambiar Tarifa float a decimal.
-Orden de servicio: vaciar todos los controles al cargarla.
 
 
